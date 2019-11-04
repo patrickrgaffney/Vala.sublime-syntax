@@ -6,22 +6,24 @@ file_extensions:
   - vala
 scope: source.vala
 
+variables:
+  # Legal identifiers must begin with one alphabetic character
+  # or underscore, followed by any number (zero or more) of
+  # alphanumerics or underscores.
+  identifiers: \b[[:alpha:]_]([[:alnum:]_])*\b
+
 contexts:
   prototype:
     - include: comments
 
   main:
-    - include: keywords
-    - include: numbers
-    - include: strings
-
-  keywords:
     - match: '\b(if|else|for|while)\b'
       scope: keyword.control.vala
 
   comments:
     - include: line_comments
 
+  # Line comments begin with '//' and pop at the EOL.
   line_comments:
     - match: //
       scope: punctuation.definition.comment.vala
