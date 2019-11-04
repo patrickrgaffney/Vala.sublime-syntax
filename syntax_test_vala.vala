@@ -73,3 +73,15 @@
     1; 523453245345;
 //  ^ constant.numeric.integer.vala
 //     ^^^^^^^^^^^^ constant.numeric.integer.vala
+
+/////////////////////////////////////////////////////////////////////
+// FLOATS
+/////////////////////////////////////////////////////////////////////
+
+    1.2; 3.1446346; 55555555.334;
+//  ^^^ constant.numeric.float.vala
+//   ^ punctuation.separator.decimal.vala
+//       ^^^^^^^^^ constant.numeric.float.vala
+//        ^ punctuation.separator.decimal.vala
+//                  ^^^^^^^^^^^^ constant.numeric.float.vala
+//                          ^ punctuation.separator.decimal.vala

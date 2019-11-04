@@ -85,7 +85,14 @@ contexts:
       scope: storage.type.vala
 
   number_literals:
+    - include: float_literals
     - include: integer_literals
+
+  float_literals:
+    - match: \d+([.])(\d+)
+      scope: constant.numeric.float.vala
+      captures:
+        1: punctuation.separator.decimal.vala
 
   integer_literals:
     - match: \d+
