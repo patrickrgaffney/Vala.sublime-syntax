@@ -1,0 +1,31 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+# https://www.vala-project.org/doc/vala/
+file_extensions:
+  - vala
+scope: source.vala
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: keywords
+    - include: numbers
+    - include: strings
+
+  keywords:
+    - match: '\b(if|else|for|while)\b'
+      scope: keyword.control.vala
+
+  comments:
+    - include: line_comments
+
+  line_comments:
+    - match: //
+      scope: punctuation.definition.comment.vala
+      push:
+        - meta_scope: comment.line.vala
+        - match: $\n?
+          pop: true
