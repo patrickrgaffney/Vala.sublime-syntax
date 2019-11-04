@@ -13,7 +13,7 @@ variables:
   identifiers: \b[[:alpha:]_]([[:alnum:]_])*\b
 
   boolean_type_names: \b(bool)\b
-  integral_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
+  integer_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
   float_type_names: \b(float|double)\b
 
 contexts:
@@ -48,13 +48,18 @@ contexts:
           pop: true
 
   types:
-    - include: boolean_types
+    - include: boolean_type_keywords
+    - include: integer_type_keywords
 
   punctuation:
     - include: semicolon
 
-  boolean_types:
+  boolean_type_keywords:
     - match: '{{boolean_type_names}}'
+      scope: storage.type.vala
+
+  integer_type_keywords:
+    - match: '{{integer_type_names}}'
       scope: storage.type.vala
 
   semicolon:

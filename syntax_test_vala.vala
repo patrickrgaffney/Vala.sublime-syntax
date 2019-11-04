@@ -33,3 +33,28 @@
 
     bool;
 //  ^^^^ storage.type.vala
+
+    char; uchar; short; ushort; int; uint; long;
+//  ^^^^ storage.type.vala
+//        ^^^^^ storage.type.vala
+//               ^^^^^ storage.type.vala
+//                      ^^^^^^ storage.type.vala
+//                              ^^^ storage.type.vala
+//                                   ^^^^ storage.type.vala
+//                                         ^^^^ storage.type.vala
+
+    ulong; size_t; ssize_t; int8; uint8; int16;
+//  ^^^^^ storage.type.vala
+//         ^^^^^^ storage.type.vala
+//                 ^^^^^^^ storage.type.vala
+//                          ^^^^ storage.type.vala
+//                                ^^^^^ storage.type.vala
+//                                       ^^^^^ storage.type.vala
+
+    uint16; int32; uint32; int64; uint64; unichar;
+//  ^^^^^^ storage.type.vala
+//          ^^^^^ storage.type.vala
+//                 ^^^^^^ storage.type.vala
+//                         ^^^^^ storage.type.vala
+//                                ^^^^^^ storage.type.vala
+//                                        ^^^^^^^ storage.type.vala
