@@ -15,7 +15,7 @@
     /* sdfdsfsdf */
 //  ^^ punctuation.definition.comment.begin.vala
 //  ^^^^^^^^^^^^^^^ comment.block.vala
-//               ^^ comment.block.vala punctuation.definition.comment.end.vala
+//               ^^ punctuation.definition.comment.end.vala
 
     /*
 //  ^^ comment.block.vala punctuation.definition.comment.begin.vala
@@ -65,6 +65,15 @@
 
     string;
 //  ^^^^^^ storage.type.vala
+
+/////////////////////////////////////////////////////////////////////
+// LANGUAGE CONSTANTS
+/////////////////////////////////////////////////////////////////////
+
+    true; false; null;
+//  ^^^^ constant.language.vala
+//        ^^^^^ constant.language.vala
+//               ^^^^ constant.language.vala
 
 /////////////////////////////////////////////////////////////////////
 // INTEGERS

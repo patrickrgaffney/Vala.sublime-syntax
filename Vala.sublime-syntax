@@ -10,6 +10,7 @@ variables:
   # Legal identifiers must begin with one alphabetic character
   # or underscore, followed by any number (zero or more) of
   # alphanumerics or underscores.
+  # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
   identifiers: \b[[:alpha:]_]([[:alnum:]_])*\b
 
   boolean_type_names: \b(bool)\b
@@ -27,6 +28,7 @@ contexts:
     - include: punctuation
 
   comments:
+    # TODO: add valadoc syntax: https://valadoc.org/markup.htm
     - include: line_comments
     - include: block_comments
 
@@ -53,6 +55,7 @@ contexts:
     - include: type_keywords
 
   expressions:
+    - include: language_constants
     - include: number_literals
 
   punctuation:
@@ -83,6 +86,10 @@ contexts:
   reference_type_keywords:
     - match: '{{reference_type_names}}'
       scope: storage.type.vala
+
+  language_constants:
+    - match: \b(true|false|null)\b
+      scope: constant.language.vala
 
   number_literals:
     - include: float_literals
