@@ -62,3 +62,7 @@
     float; double;
 //  ^^^^^ storage.type.vala
 //         ^^^^^^ storage.type.vala
+
+    string;
+//  ^^^^^^ storage.type.vala
+

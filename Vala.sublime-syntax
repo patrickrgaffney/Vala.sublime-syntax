@@ -15,6 +15,7 @@ variables:
   boolean_type_names: \b(bool)\b
   integer_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
   float_type_names: \b(float|double)\b
+  reference_type_names: \b(string)\b
 
 contexts:
   prototype:
@@ -51,6 +52,7 @@ contexts:
     - include: boolean_type_keywords
     - include: integer_type_keywords
     - include: float_type_keywords
+    - include: reference_type_keywords
 
   punctuation:
     - include: semicolon
@@ -65,6 +67,10 @@ contexts:
 
   float_type_keywords:
     - match: '{{float_type_names}}'
+      scope: storage.type.vala
+
+  reference_type_keywords:
+    - match: '{{reference_type_names}}'
       scope: storage.type.vala
 
   semicolon:
