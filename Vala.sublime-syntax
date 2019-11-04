@@ -22,6 +22,7 @@ contexts:
 
   main:
     - include: types
+    - include: punctuation
 
   comments:
     - include: line_comments
@@ -49,6 +50,13 @@ contexts:
   types:
     - include: boolean_types
 
+  punctuation:
+    - include: semicolon
+
   boolean_types:
     - match: '{{boolean_type_names}}'
       scope: storage.type.vala
+
+  semicolon:
+    - match: ;
+      scope: punctuation.terminator.vala
