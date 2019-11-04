@@ -12,13 +12,16 @@ variables:
   # alphanumerics or underscores.
   identifiers: \b[[:alpha:]_]([[:alnum:]_])*\b
 
+  boolean_type_names: \b(bool)\b
+  integral_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
+  float_type_names: \b(float|double)\b
+
 contexts:
   prototype:
     - include: comments
 
   main:
-    - match: '\b(if|else|for|while)\b'
-      scope: keyword.control.vala
+    - include: types
 
   comments:
     - include: line_comments
@@ -42,3 +45,10 @@ contexts:
         - match: \*/
           scope: punctuation.definition.comment.end.vala
           pop: true
+
+  types:
+    - include: boolean_types
+
+  boolean_types:
+    - match: '{{boolean_type_names}}'
+      scope: storage.type.vala
