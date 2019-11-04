@@ -58,3 +58,7 @@
 //                         ^^^^^ storage.type.vala
 //                                ^^^^^^ storage.type.vala
 //                                        ^^^^^^^ storage.type.vala
+
+    float; double;
+//  ^^^^^ storage.type.vala
+//         ^^^^^^ storage.type.vala

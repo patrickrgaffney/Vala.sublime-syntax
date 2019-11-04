@@ -50,6 +50,7 @@ contexts:
   types:
     - include: boolean_type_keywords
     - include: integer_type_keywords
+    - include: float_type_keywords
 
   punctuation:
     - include: semicolon
@@ -60,6 +61,10 @@ contexts:
 
   integer_type_keywords:
     - match: '{{integer_type_names}}'
+      scope: storage.type.vala
+
+  float_type_keywords:
+    - match: '{{float_type_names}}'
       scope: storage.type.vala
 
   semicolon:
