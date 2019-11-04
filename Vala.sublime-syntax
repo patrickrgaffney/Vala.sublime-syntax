@@ -22,7 +22,7 @@ contexts:
     - include: comments
 
   main:
-    - include: types
+    - include: keywords
     - include: punctuation
 
   comments:
@@ -48,7 +48,10 @@ contexts:
           scope: punctuation.definition.comment.end.vala
           pop: true
 
-  types:
+  keywords:
+    - include: type_keywords
+
+  type_keywords:
     - include: boolean_type_keywords
     - include: integer_type_keywords
     - include: float_type_keywords
