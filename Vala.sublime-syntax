@@ -22,6 +22,7 @@ contexts:
 
   comments:
     - include: line_comments
+    - include: block_comments
 
   # Line comments begin with '//' and pop at the EOL.
   line_comments:
@@ -30,4 +31,14 @@ contexts:
       push:
         - meta_scope: comment.line.vala
         - match: $\n?
+          pop: true
+
+  # C-Style block comments.
+  block_comments:
+    - match: /\*
+      scope: punctuation.definition.comment.begin.vala
+      push:
+        - meta_scope: comment.block.vala
+        - match: \*/
+          scope: punctuation.definition.comment.end.vala
           pop: true
