@@ -23,6 +23,7 @@ contexts:
 
   main:
     - include: keywords
+    - include: expressions
     - include: punctuation
 
   comments:
@@ -51,14 +52,21 @@ contexts:
   keywords:
     - include: type_keywords
 
+  expressions:
+    - include: number_literals
+
+  punctuation:
+    - include: semicolon
+
+  semicolon:
+    - match: ;
+      scope: punctuation.terminator.vala
+
   type_keywords:
     - include: boolean_type_keywords
     - include: integer_type_keywords
     - include: float_type_keywords
     - include: reference_type_keywords
-
-  punctuation:
-    - include: semicolon
 
   boolean_type_keywords:
     - match: '{{boolean_type_names}}'
@@ -76,6 +84,9 @@ contexts:
     - match: '{{reference_type_names}}'
       scope: storage.type.vala
 
-  semicolon:
-    - match: ;
-      scope: punctuation.terminator.vala
+  number_literals:
+    - include: integer_literals
+
+  integer_literals:
+    - match: \d+
+      scope: constant.numeric.integer.vala
