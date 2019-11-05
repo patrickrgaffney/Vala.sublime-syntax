@@ -1,0 +1,121 @@
+# TODO
+
+- **Comments**
+    - ✅ line comments `// comment`
+    - ✅ block comments `/* blah */`
+    - [doc comments][doc-comments] `/** doc */`
+- **Type Keywords**
+    - ✅ booleans
+    - ✅ integers
+    - ✅ floats
+    - ✅ strings
+- **Operators**
+    - ✅ assignment
+    - ✅ bitwise
+    - ✅ bitwise-shift
+    - ✅ relational
+    - ✅ logical
+    - ✅ coalescing
+    - ✅ ternary
+    - class/array (`new`) instantiation
+    - `in` flag operator
+    - `is` type operator
+    - `as` type operator
+    - `sizeof`
+    - `typeof`
+    - `=>` lambda operator
+    - `->` pointer operator
+    - `global::`
+    - array indicies / subscripts
+    - commas
+    - ✅ semicolon
+    - ellipsis parameter
+    - `delete`
+    - slice `[:]`
+    - ownership transfer `(owned)`
+- **Primitive Literals**
+    - ✅ integers
+    - ✅ floats
+    - ✅ `true` and `false`
+    - ✅ `null`
+    - ✅ single-line strings
+    - ✅ single-line string escapes
+    - ✅ verbatim strings
+    - string templates: `@"$a * $b = $(a * b)"`
+- **Variables**
+    - declaration with explicit type
+    - declaration with explicit type and initializer
+    - declaration with type inference
+    - `var`
+    - ✅ identifiers
+    - `@`-prefixed identifiers
+    - storage modifiers
+    - index operators (subscript) on variables
+- **Blocks**
+    - statements surrounded by `{ ... }`
+- **Selection Statements**
+    - `if`
+    - `else if`
+    - `else`
+    - `switch`,
+    - switch `case`
+    - switch `default`
+- **Iteration Statements**
+    - `while`
+    - `do...while`
+    - `for`
+    - `foreach...in`
+- **Jump Statements**
+    - `break`
+    - `continue`
+    - `return`
+    - `throw`
+- **Try Statement**
+    - `try`
+- **Lock Statement**
+    - `lock`
+- **Namespaces**
+    - `namespace`
+    - recursive
+    - nested naming `Namespace1.Namespace2`
+    - members
+    - access modifiers `public`, `private`
+    - field declaration
+    - constants `const`
+    - `using` statements
+    - `global::` references
+- **Member access**
+    - dot-access `x.member`
+    - `this` keyword
+    - works on all expressions
+- **Lambdas**
+    - `params => body`
+    - providing direction on parameters: `out`, `reef`
+    - named parameters
+- **Functions**
+    - storage modifiers
+- **Structs**
+    - instantiation
+    - initializing field values
+- **Arrays**
+    - `new` instantiation
+    - providing `sizes` and initialization expressions
+    - subscripts
+- **Enums**
+- **Methods**
+    - storage modifiers
+    - `yield` expression
+- **Delegates**
+    - `yield` expression
+- **Errors**
+- **Signals**
+    - `yield` expression
+- **Generics**
+- **Classes**
+    - `new` instantiation
+    - subclasses
+
+
+
+
+[doc-comments]: https://valadoc.org/markup.htm
