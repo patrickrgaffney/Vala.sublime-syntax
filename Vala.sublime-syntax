@@ -63,6 +63,8 @@ contexts:
     - include: strings
 
   operators:
+    # TODO: class/array (`new`) instantiation
+    # TODO:
     - include: semicolon
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
@@ -84,6 +86,9 @@ contexts:
     # Bitwise operators.
     - match: (\||\^|&|~|)
       scope: keyword.operator.bitwise.vala
+    # Coalescing operator
+    - match: \?\?
+      scope: keyword.operator.vala
     # Conditional operators
     - match: (\?|\:)
       scope: keyword.operator.vala
