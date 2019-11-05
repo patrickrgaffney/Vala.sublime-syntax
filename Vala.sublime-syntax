@@ -71,7 +71,7 @@ contexts:
       scope: punctuation.terminator.vala
 
   arithmetic_operators:
-    - match: '[+-]'
+    - match: '(\+|\-|\*|\/|\%)'
       scope: keyword.operator.arithmetic.vala
 
   type_keywords:

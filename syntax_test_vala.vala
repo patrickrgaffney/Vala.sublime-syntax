@@ -159,3 +159,14 @@
 //              ^ keyword.operator.arithmetic.vala
 //                ^ keyword.operator.arithmetic.vala
 //                 ^ constant.numeric.integer.vala
+
+    1*2; 4 / 5; 5 % 6.1;
+//  ^ constant.numeric.integer.vala
+//   ^ keyword.operator.arithmetic.vala
+//    ^ constant.numeric.integer.vala
+//       ^ constant.numeric.integer.vala
+//         ^ keyword.operator.arithmetic.vala
+//           ^ constant.numeric.integer.vala
+//              ^ constant.numeric.integer.vala
+//                ^ keyword.operator.arithmetic.vala
+//                  ^^^ constant.numeric.float.vala
