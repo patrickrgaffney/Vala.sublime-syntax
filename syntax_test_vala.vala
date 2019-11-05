@@ -130,3 +130,16 @@
 //  ^ invalid.illegal.vala punctuation.definition.string.end.vala
 //   ^^ -string -invalid
 
+    """no escapes \n, \t, \\, etc"""
+//  ^^^ punctuation.definition.string.begin.vala
+//                               ^^^ punctuation.definition.string.end.vala
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.triple.vala
+
+    """
+//  ^^^ string.quoted.triple.vala punctuation.definition.string.begin.vala
+    over
+//  ^^^^^ string.quoted.triple.vala
+    multiple lines
+//  ^^^^^^^^^^^^^^^ string.quoted.triple.vala
+    """
+//  ^^^ string.quoted.triple.vala punctuation.definition.string.end.vala

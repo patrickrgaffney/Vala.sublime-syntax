@@ -110,6 +110,7 @@ contexts:
       scope: constant.numeric.integer.vala
 
   strings:
+    - include: verbatim_strings
     - include: single_line_strings
 
   single_line_strings:
@@ -128,3 +129,12 @@ contexts:
             - match: '"'
               scope: punctuation.definition.string.end.vala
               pop: true
+
+  verbatim_strings:
+    - match: '"""'
+      scope: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.triple.vala
+        - match: '"""'
+          scope: punctuation.definition.string.end.vala
+          pop: true
