@@ -258,3 +258,9 @@
 //                           ^^ punctuation.definition.comment.end.vala
 //                              ^ punctuation.section.block.end.vala
 //                    ^^^^^^^^^^^ meta.namespace.vala meta.block.vala 
+
+/** Allows field declarations */
+
+    namespace ns1 {
+        string s = 
+    }

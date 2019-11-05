@@ -13,13 +13,16 @@ variables:
   # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
   identifier: \b[[:alpha:]_]([[:alnum:]_])*\b
 
-  boolean_type_names: \b(bool)\b
-  integer_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
-  float_type_names: \b(float|double)\b
-  reference_type_names: \b(string)\b
+  boolean_type_name: bool
+  integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
+  float_type_name: float|double
+  reference_type_name: string
+  builtin_type: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}'
 
   # Lifted from the characters GLib's string.escape() method will handle.
-  string_escapes: \\[bfnrtv"]
+  string_escape: \\[bfnrtv"]
+
+  access_modifier: \b(public|private)\b
 
 contexts:
   prototype:
@@ -94,25 +97,7 @@ contexts:
       scope: punctuation.terminator.vala
 
   type_keywords:
-    - include: boolean_type_keywords
-    - include: integer_type_keywords
-    - include: float_type_keywords
-    - include: reference_type_keywords
-
-  boolean_type_keywords:
-    - match: '{{boolean_type_names}}'
-      scope: storage.type.vala
-
-  integer_type_keywords:
-    - match: '{{integer_type_names}}'
-      scope: storage.type.vala
-
-  float_type_keywords:
-    - match: '{{float_type_names}}'
-      scope: storage.type.vala
-
-  reference_type_keywords:
-    - match: '{{reference_type_names}}'
+    - match: '\b({{builtin_type}})\b'
       scope: storage.type.vala
 
   language_constants:
@@ -145,7 +130,7 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.end.vala
           pop: true
-        - match: '{{string_escapes}}'
+        - match: '{{string_escape}}'
           scope: constant.character.escape.vala
         - match: $\n?
           set:
@@ -185,3 +170,19 @@ contexts:
 
   namespace_members:
     - include: namespace_declarations
+    - include: field_declarations
+
+  field_declarations:
+    - match: '{{access_modifier}}\s+'
+      scope: storage.modifier.vala
+      push:
+        - match: '{{identifier}}'
+          scope: variable.other.readwrite.vala
+        - include: type_keywords
+        - match: =
+          scope: keyword.operator.assignment.vala
+        - match: \;
+          scope: punctuation.terminator.vala
+          pop: true
+        - include: expressions
+    - match: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}'
