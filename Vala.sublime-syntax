@@ -64,25 +64,25 @@ contexts:
 
   punctuation:
     - include: semicolon
-    - include: relational_operators
-    - include: arithmetic_operators
-    - include: logical_operators
+    # Bitwise-shift operators.
+    - match: (<<|>>)
+      scope: keyword.operator.bitwise.vala
+    # Relational operators
+    - match: (==|!=|<=|<|>=|>)
+      scope: keyword.operator.comparison.vala
+    # Arithmetic operators.
+    - match: (\+\+|--|\+|-|\*|\/|%)
+      scope: keyword.operator.arithmetic.vala
+    # Logical operators.
+    - match: (\|\||&&|!)
+      scope: keyword.operator.logical.vala
+    # Bitwise operators.
+    - match: (\||\^|&|~|)
+      scope: keyword.operator.bitwise.vala
 
   semicolon:
     - match: ;
       scope: punctuation.terminator.vala
-
-  logical_operators:
-    - match: (\|\||\&\&|\!)
-      scope: keyword.operator.logical.vala
-
-  relational_operators:
-    - match: (==|!=|<=|<|>=|>)
-      scope: keyword.operator.comparison.vala
-
-  arithmetic_operators:
-    - match: (\+\+|\-\-|\+|\-|\*|\/|\%)
-      scope: keyword.operator.arithmetic.vala
 
   type_keywords:
     - include: boolean_type_keywords

@@ -177,3 +177,11 @@
 //    ^^ keyword.operator.logical.vala
 //            ^^ keyword.operator.logical.vala
 //                  ^ keyword.operator.logical.vala
+
+    1|1; 1^1; 1&1; ~1; 1<<1; 1>>1;
+//   ^ keyword.operator.bitwise.vala
+//        ^ keyword.operator.bitwise.vala
+//             ^ keyword.operator.bitwise.vala
+//                 ^ keyword.operator.bitwise.vala
+//                      ^^ keyword.operator.bitwise.vala
+//                            ^^ keyword.operator.bitwise.vala
