@@ -1,22 +1,22 @@
 # TODO
 
-- **Comments**
-    - ✅ line comments `// comment`
-    - ✅ block comments `/* blah */`
+- ⏹ **Comments**
+    - ☑️ line comments `// comment`
+    - ☑️ block comments `/* blah */`
     - [doc comments][doc-comments] `/** doc */`
-- **Type Keywords**
-    - ✅ booleans
-    - ✅ integers
-    - ✅ floats
-    - ✅ strings
-- **Operators**
-    - ✅ assignment
-    - ✅ bitwise
-    - ✅ bitwise-shift
-    - ✅ relational
-    - ✅ logical
-    - ✅ coalescing
-    - ✅ ternary
+- ☑️ **Type Keywords**
+    - ☑️ booleans
+    - ☑️ integers
+    - ☑️ floats
+    - ☑️ strings
+- ⏹ **Operators**
+    - ☑️ assignment
+    - ☑️ bitwise
+    - ☑️ bitwise-shift
+    - ☑️ relational
+    - ☑️ logical
+    - ☑️ coalescing
+    - ☑️ ternary
     - class/array (`new`) instantiation
     - `in` flag operator
     - `is` type operator
@@ -28,26 +28,26 @@
     - `global::`
     - array indicies / subscripts
     - commas
-    - ✅ semicolon
+    - ☑️ semicolon
     - ellipsis parameter
     - `delete`
     - slice `[:]`
     - ownership transfer `(owned)`
-- **Primitive Literals**
-    - ✅ integers
-    - ✅ floats
-    - ✅ `true` and `false`
-    - ✅ `null`
-    - ✅ single-line strings
-    - ✅ single-line string escapes
-    - ✅ verbatim strings
+- ⏹ **Primitive Literals**
+    - ☑️ integers
+    - ☑️ floats
+    - ☑️ `true` and `false`
+    - ☑️ `null`
+    - ☑️ single-line strings
+    - ☑️ single-line string escapes
+    - ☑️ verbatim strings
     - string templates: `@"$a * $b = $(a * b)"`
-- **Variables**
+- ⏹ **Variables**
     - declaration with explicit type
     - declaration with explicit type and initializer
     - declaration with type inference
     - `var`
-    - ✅ identifiers
+    - ☑️ identifiers
     - `@`-prefixed identifiers
     - storage modifiers
     - index operators (subscript) on variables
@@ -74,16 +74,28 @@
     - `try`
 - **Lock Statement**
     - `lock`
-- **Namespaces**
-    - `namespace`
-    - recursive
-    - nested naming `Namespace1.Namespace2`
+- ⏹ **Namespaces**
+    - ☑️ `namespace`
+    - ☑️ recursive
+    - ☑️ nested naming `Namespace1.Namespace2`
     - members
     - access modifiers `public`, `private`
     - field declaration
     - constants `const`
     - `using` statements
     - `global::` references
+    - ⏹ only allows `namespace-members` as the body:
+        - class declarations
+        - abstract-classes declarations
+        - constant declarations
+        - delegate declarations
+        - enum declarations
+        - errordomain declarations
+        - field declarations
+        - interface declarations
+        - method declarations
+        - ☑️ namespace declarations
+        - struct declaractions
 - **Member access**
     - dot-access `x.member`
     - `this` keyword
@@ -114,8 +126,6 @@
 - **Classes**
     - `new` instantiation
     - subclasses
-
-
 
 
 [doc-comments]: https://valadoc.org/markup.htm

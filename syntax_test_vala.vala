@@ -206,3 +206,55 @@
 //         ^ keyword.operator.vala
 //             ^ keyword.operator.vala
 //                    ^^ keyword.operator.vala
+
+/////////////////////////////////////////////////////////////////////
+// NAMESPACES
+/////////////////////////////////////////////////////////////////////
+
+/** Matches keywords and assigns meta scopes **/
+
+    namespace Ns1 { /* c */ }
+//  ^^^^^^^^^ storage.type.vala
+//            ^^^ entity.name.namespace.vala
+//  ^^^^^^^^^^^^^^ meta.namespace.vala
+//                ^ punctuation.section.block.begin.vala
+//                  ^^ punctuation.definition.comment.begin.vala
+//                  ^^^^^^^ comment.block.vala
+//                       ^^ punctuation.definition.comment.end.vala
+//                          ^ punctuation.section.block.end.vala
+//                ^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+
+/** Allows nesting namespaces **/
+
+    namespace Ns1 {
+//  ^^^^^^^^^ storage.type.vala
+//            ^^^ entity.name.namespace.vala
+//                ^ meta.block.vala punctuation.section.block.begin.vala
+//  ^^^^^^^^^^^^^^^^ meta.namespace.vala
+        namespace Ns2 { /* c */ }
+//      ^^^^^^^^^ storage.type.vala
+//                ^^^ entity.name.namespace.vala
+//      ^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala meta.namespace.vala
+//                    ^ punctuation.section.block.begin.vala
+//                      ^^ punctuation.definition.comment.begin.vala
+//                      ^^^^^^^ comment.block.vala
+//                           ^^ punctuation.definition.comment.end.vala
+//                              ^ punctuation.section.block.end.vala
+//                    ^^^^^^^^^^^ meta.namespace.vala meta.block.vala meta.namespace.vala meta.block.vala
+    }
+//  ^ meta.namespace.vala meta.block.vala punctuation.section.block.end.vala
+//   ^ -meta
+
+/** Allows subclass syntax instead of nesting blocks **/
+
+    namespace Ns1.Ns2 { /* c */ }
+//  ^^^^^^^^^ storage.type.vala
+//            ^^^ entity.name.namespace.vala
+//               ^ punctuation.separator.vala
+//                ^^^ entity.name.namespace.vala 
+//  ^^^^^^^^^^^^^^^^^^ meta.namespace.vala
+//                    ^ punctuation.section.block.begin.vala
+//                      ^^ punctuation.definition.comment.begin.vala
+//                           ^^ punctuation.definition.comment.end.vala
+//                              ^ punctuation.section.block.end.vala
+//                    ^^^^^^^^^^^ meta.namespace.vala meta.block.vala 

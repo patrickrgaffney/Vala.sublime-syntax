@@ -11,7 +11,7 @@ variables:
   # or underscore, followed by any number (zero or more) of
   # alphanumerics or underscores.
   # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
-  identifiers: \b[[:alpha:]_]([[:alnum:]_])*\b
+  identifier: \b[[:alpha:]_]([[:alnum:]_])*\b
 
   boolean_type_names: \b(bool)\b
   integer_type_names: \b(char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar)\b
@@ -29,13 +29,12 @@ contexts:
     - include: keywords
     - include: expressions
     - include: operators
+    - include: namespace_declarations
 
   comments:
-    # TODO: add valadoc syntax: https://valadoc.org/markup.htm
     - include: line_comments
     - include: block_comments
 
-  # Line comments begin with '//' and pop at the EOL.
   line_comments:
     - match: //
       scope: punctuation.definition.comment.vala
@@ -44,7 +43,6 @@ contexts:
         - match: $\n?
           pop: true
 
-  # C-Style block comments.
   block_comments:
     - match: /\*
       scope: punctuation.definition.comment.begin.vala
@@ -63,14 +61,6 @@ contexts:
     - include: strings
 
   operators:
-    # TODO: class/array (`new`) instantiation
-    # TODO: `in` flag operator
-    # TODO: `is` type operator
-    # TODO: `as` type operator
-    # TODO: `sizeof`
-    # TODO: `typeof`
-    # TODO: `=>` lambda operator
-    # TODO: `->` pointer operator
     - include: semicolon
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
@@ -144,7 +134,6 @@ contexts:
       scope: constant.numeric.integer.vala
 
   strings:
-    # TODO: string templates: @"$a * $b = $(a * b)";
     - include: verbatim_strings
     - include: single_line_strings
 
@@ -173,3 +162,26 @@ contexts:
         - match: '"""'
           scope: punctuation.definition.string.end.vala
           pop: true
+
+  namespace_declarations:
+    - match: '\b(namespace)\b\s+({{identifier}})'
+      captures:
+        1: storage.type.vala
+        2: entity.name.namespace.vala
+      push:
+        - meta_scope: meta.namespace.vala
+        - match: '{{identifier}}'
+          scope: entity.name.namespace.vala
+        - match: \.
+          scope: punctuation.separator.vala
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.namespace.vala meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: namespace_members
+
+  namespace_members:
+    - include: namespace_declarations
