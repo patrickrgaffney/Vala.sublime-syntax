@@ -64,7 +64,13 @@ contexts:
 
   operators:
     # TODO: class/array (`new`) instantiation
-    # TODO:
+    # TODO: `in` flag operator
+    # TODO: `is` type operator
+    # TODO: `as` type operator
+    # TODO: `sizeof`
+    # TODO: `typeof`
+    # TODO: `=>` lambda operator
+    # TODO: `->` pointer operator
     - include: semicolon
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
