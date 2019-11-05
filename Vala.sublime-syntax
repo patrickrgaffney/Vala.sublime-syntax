@@ -122,3 +122,9 @@ contexts:
           pop: true
         - match: '{{string_escapes}}'
           scope: constant.character.escape.vala
+        - match: $\n?
+          set:
+            - meta_scope: invalid.illegal.vala
+            - match: '"'
+              scope: punctuation.definition.string.end.vala
+              pop: true

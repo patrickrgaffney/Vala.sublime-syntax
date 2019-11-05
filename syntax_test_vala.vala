@@ -119,3 +119,14 @@
 //                  ^^ constant.character.escape.vala
 //                     ^^ constant.character.escape.vala
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.vala
+
+    "
+//  ^ string.quoted.double.vala punctuation.definition.string.begin.vala
+    " 
+// <- invalid.illegal.vala
+ // <- invalid.illegal.vala
+  // <- invalid.illegal.vala
+// ^ invalid.illegal.vala
+//  ^ invalid.illegal.vala punctuation.definition.string.end.vala
+//   ^^ -string -invalid
+
