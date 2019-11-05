@@ -108,3 +108,14 @@
 //                ^ punctuation.definition.string.begin.vala
 //                   ^ punctuation.definition.string.end.vala
 //            ^^^^^^^^ string.quoted.double.vala
+
+    "\n \t \f \r \t \v \" \p"
+//  ^ punctuation.definition.string.begin.vala
+//   ^^ constant.character.escape.vala
+//      ^^ constant.character.escape.vala
+//         ^^ constant.character.escape.vala
+//            ^^ constant.character.escape.vala
+//               ^^ constant.character.escape.vala
+//                  ^^ constant.character.escape.vala
+//                     ^^ constant.character.escape.vala
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double.vala

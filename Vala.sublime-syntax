@@ -18,6 +18,9 @@ variables:
   float_type_names: \b(float|double)\b
   reference_type_names: \b(string)\b
 
+  # Lifted from the characters GLib's string.escape() method will handle.
+  string_escapes: \\[bfnrtv"]
+
 contexts:
   prototype:
     - include: comments
@@ -117,3 +120,5 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.end.vala
           pop: true
+        - match: '{{string_escapes}}'
+          scope: constant.character.escape.vala
