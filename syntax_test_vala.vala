@@ -185,3 +185,18 @@
 //                 ^ keyword.operator.bitwise.vala
 //                      ^^ keyword.operator.bitwise.vala
 //                            ^^ keyword.operator.bitwise.vala
+
+    1 = 2; 1+=2; 1-=2; 1*=2; 1/=2; 1%=2;
+//    ^ keyword.operator.assignment.vala
+//          ^^ keyword.operator.assignment.vala
+//                ^^ keyword.operator.assignment.vala
+//                      ^^ keyword.operator.assignment.vala
+//                            ^^ keyword.operator.assignment.vala
+//                                  ^^ keyword.operator.assignment.vala
+
+    1|=2; 1&=2; 1^=2; 1<<=2: 1>>=2;
+//   ^^ keyword.operator.assignment.vala
+//         ^^ keyword.operator.assignment.vala
+//               ^^ keyword.operator.assignment.vala
+//                     ^^^ keyword.operator.assignment.vala
+//                            ^^^ keyword.operator.assignment.vala

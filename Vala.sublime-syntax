@@ -64,12 +64,17 @@ contexts:
 
   punctuation:
     - include: semicolon
+    # Assignment operators
+    - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
+      scope: keyword.operator.assignment.vala
     # Bitwise-shift operators.
     - match: (<<|>>)
       scope: keyword.operator.bitwise.vala
     # Relational operators
     - match: (==|!=|<=|<|>=|>)
       scope: keyword.operator.comparison.vala
+    - match: =
+      scope: keyword.operator.assignment.vala
     # Arithmetic operators.
     - match: (\+\+|--|\+|-|\*|\/|%)
       scope: keyword.operator.arithmetic.vala
