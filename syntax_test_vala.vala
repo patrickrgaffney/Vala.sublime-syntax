@@ -172,3 +172,8 @@
 //        ^^ keyword.operator.comparison.vala
 //              ^ keyword.operator.comparison.vala
 //                   ^^ keyword.operator.comparison.vala
+
+    3 || 4; 4 && 4; !3;
+//    ^^ keyword.operator.logical.vala
+//            ^^ keyword.operator.logical.vala
+//                  ^ keyword.operator.logical.vala

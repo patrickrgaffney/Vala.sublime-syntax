@@ -66,10 +66,15 @@ contexts:
     - include: semicolon
     - include: relational_operators
     - include: arithmetic_operators
+    - include: logical_operators
 
   semicolon:
     - match: ;
       scope: punctuation.terminator.vala
+
+  logical_operators:
+    - match: (\|\||\&\&|\!)
+      scope: keyword.operator.logical.vala
 
   relational_operators:
     - match: (==|!=|<=|<|>=|>)
