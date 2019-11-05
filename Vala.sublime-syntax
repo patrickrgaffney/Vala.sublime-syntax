@@ -84,6 +84,9 @@ contexts:
     # Bitwise operators.
     - match: (\||\^|&|~|)
       scope: keyword.operator.bitwise.vala
+    # Conditional operators
+    - match: (\?|\:)
+      scope: keyword.operator.vala
 
   semicolon:
     - match: ;

@@ -200,3 +200,8 @@
 //               ^^ keyword.operator.assignment.vala
 //                     ^^^ keyword.operator.assignment.vala
 //                            ^^^ keyword.operator.assignment.vala
+
+    1 == 2 ? 3 : 4;
+//    ^^ keyword.operator.comparison.vala
+//         ^ keyword.operator.vala
+//             ^ keyword.operator.vala
