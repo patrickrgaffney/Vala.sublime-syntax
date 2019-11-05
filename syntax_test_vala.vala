@@ -150,11 +150,13 @@
 // OPERATORS
 /////////////////////////////////////////////////////////////////////
 
-    1 + 2; -3.4 - +5;
+    1 + 2; -3.4 - +5; 5++; --7;
 //    ^ keyword.operator.arithmetic.vala
 //         ^ keyword.operator.arithmetic.vala
 //              ^ keyword.operator.arithmetic.vala
 //                ^ keyword.operator.arithmetic.vala
+//                     ^^ keyword.operator.arithmetic.vala
+//                         ^^ keyword.operator.arithmetic.vala
 
     1*2; 4 / 5; 5 % 6.1;
 //   ^ keyword.operator.arithmetic.vala
