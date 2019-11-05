@@ -94,3 +94,17 @@
 //        ^ punctuation.separator.decimal.vala
 //                  ^^^^^^^^^^^^ constant.numeric.float.vala
 //                          ^ punctuation.separator.decimal.vala
+
+/////////////////////////////////////////////////////////////////////
+// STRINGS
+/////////////////////////////////////////////////////////////////////
+
+    "string"; "s1""s2";
+//  ^ punctuation.definition.string.begin.vala
+//  ^^^^^^^^ string.quoted.double.vala
+//         ^ punctuation.definition.string.end.vala
+//            ^ punctuation.definition.string.begin.vala
+//               ^ punctuation.definition.string.end.vala
+//                ^ punctuation.definition.string.begin.vala
+//                   ^ punctuation.definition.string.end.vala
+//            ^^^^^^^^ string.quoted.double.vala

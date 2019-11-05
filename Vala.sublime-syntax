@@ -57,6 +57,7 @@ contexts:
   expressions:
     - include: language_constants
     - include: number_literals
+    - include: strings
 
   punctuation:
     - include: semicolon
@@ -104,3 +105,15 @@ contexts:
   integer_literals:
     - match: \b\d+\b
       scope: constant.numeric.integer.vala
+
+  strings:
+    - include: single_line_strings
+
+  single_line_strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.double.vala
+        - match: '"'
+          scope: punctuation.definition.string.end.vala
+          pop: true
