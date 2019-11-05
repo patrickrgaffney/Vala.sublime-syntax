@@ -22,7 +22,7 @@ variables:
   # Lifted from the characters GLib's string.escape() method will handle.
   string_escape: \\[bfnrtv"]
 
-  access_modifier: \b(public|private)\b
+  access_modifier: public|private
 
 contexts:
   prototype:
@@ -173,16 +173,18 @@ contexts:
     - include: field_declarations
 
   field_declarations:
-    - match: '{{access_modifier}}\s+'
-      scope: storage.modifier.vala
+    - match: '\b({{access_modifier}})\b|\b({{builtin_type}})\b|(identifier)'
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+        3: support.type.vala
       push:
+        - include: type_keywords
         - match: '{{identifier}}'
           scope: variable.other.readwrite.vala
-        - include: type_keywords
         - match: =
           scope: keyword.operator.assignment.vala
         - match: \;
           scope: punctuation.terminator.vala
           pop: true
         - include: expressions
-    - match: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}'

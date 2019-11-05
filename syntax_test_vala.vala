@@ -262,5 +262,27 @@
 /** Allows field declarations */
 
     namespace ns1 {
-        string s = 
+        string s = "string";
+//      ^^^^^^ storage.type.vala
+//             ^ variable.other.readwrite.vala
+//               ^ keyword.operator.assignment.vala
+//                 ^^^^^^^^ string.quoted.double.vala
+//                         ^ punctuation.terminator.vala
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+        public int ns_int = 4;
+//      ^^^^^^ storage.modifier.vala
+//             ^^^ storage.type.vala
+//                 ^^^^^^ variable.other.readwrite.vala
+//                        ^ keyword.operator.assignment.vala
+//                          ^ constant.numeric.integer.vala
+//                           ^ punctuation.terminator.vala
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+        private char c = "c";
+//      ^^^^^^^ storage.modifier.vala
+//              ^^^^ storage.type.vala
+//                   ^ variable.other.readwrite.vala
+//                     ^ keyword.operator.assignment.vala
+//                       ^^^string.quoted.double.vala
+//                          ^ punctuation.terminator.vala
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
     }
