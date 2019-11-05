@@ -28,7 +28,7 @@ contexts:
   main:
     - include: keywords
     - include: expressions
-    - include: punctuation
+    - include: operators
 
   comments:
     # TODO: add valadoc syntax: https://valadoc.org/markup.htm
@@ -62,7 +62,7 @@ contexts:
     - include: number_literals
     - include: strings
 
-  punctuation:
+  operators:
     - include: semicolon
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
