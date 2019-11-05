@@ -151,22 +151,22 @@
 /////////////////////////////////////////////////////////////////////
 
     1 + 2; -3.4 - +5;
-//  ^ constant.numeric.integer.vala
 //    ^ keyword.operator.arithmetic.vala
-//      ^ constant.numeric.integer.vala
 //         ^ keyword.operator.arithmetic.vala
-//          ^^^ constant.numeric.float.vala
 //              ^ keyword.operator.arithmetic.vala
 //                ^ keyword.operator.arithmetic.vala
-//                 ^ constant.numeric.integer.vala
 
     1*2; 4 / 5; 5 % 6.1;
-//  ^ constant.numeric.integer.vala
 //   ^ keyword.operator.arithmetic.vala
-//    ^ constant.numeric.integer.vala
-//       ^ constant.numeric.integer.vala
 //         ^ keyword.operator.arithmetic.vala
-//           ^ constant.numeric.integer.vala
-//              ^ constant.numeric.integer.vala
 //                ^ keyword.operator.arithmetic.vala
-//                  ^^^ constant.numeric.float.vala
+
+    1 != 2; 3 == 4;
+//    ^^ keyword.operator.comparison.vala
+//            ^^ keyword.operator.comparison.vala
+
+    1<3; 1<=4; 1>4; 4>=1;
+//   ^ keyword.operator.comparison.vala
+//        ^^ keyword.operator.comparison.vala
+//              ^ keyword.operator.comparison.vala
+//                   ^^ keyword.operator.comparison.vala
