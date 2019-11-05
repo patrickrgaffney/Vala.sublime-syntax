@@ -79,9 +79,11 @@
 // INTEGERS
 /////////////////////////////////////////////////////////////////////
 
-    1; 523453245345;
+    1; 523453245345; -67;
 //  ^ constant.numeric.integer.vala
 //     ^^^^^^^^^^^^ constant.numeric.integer.vala
+//                   ^ keyword.operator.arithmetic.vala
+//                    ^^ constant.numeric.integer.vala
 
 /////////////////////////////////////////////////////////////////////
 // FLOATS
@@ -143,3 +145,17 @@
 //  ^^^^^^^^^^^^^^^ string.quoted.triple.vala
     """;
 //  ^^^ string.quoted.triple.vala punctuation.definition.string.end.vala
+
+/////////////////////////////////////////////////////////////////////
+// OPERATORS
+/////////////////////////////////////////////////////////////////////
+
+    1 + 2; -3.4 - +5;
+//  ^ constant.numeric.integer.vala
+//    ^ keyword.operator.arithmetic.vala
+//      ^ constant.numeric.integer.vala
+//         ^ keyword.operator.arithmetic.vala
+//          ^^^ constant.numeric.float.vala
+//              ^ keyword.operator.arithmetic.vala
+//                ^ keyword.operator.arithmetic.vala
+//                 ^ constant.numeric.integer.vala

@@ -64,10 +64,15 @@ contexts:
 
   punctuation:
     - include: semicolon
+    - include: arithmetic_operators
 
   semicolon:
     - match: ;
       scope: punctuation.terminator.vala
+
+  arithmetic_operators:
+    - match: '[+-]'
+      scope: keyword.operator.arithmetic.vala
 
   type_keywords:
     - include: boolean_type_keywords
