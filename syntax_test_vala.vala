@@ -109,7 +109,7 @@
 //                   ^ punctuation.definition.string.end.vala
 //            ^^^^^^^^ string.quoted.double.vala
 
-    "\n \t \f \r \t \v \" \p"
+    "\n \t \f \r \t \v \" \p";
 //  ^ punctuation.definition.string.begin.vala
 //   ^^ constant.character.escape.vala
 //      ^^ constant.character.escape.vala
@@ -122,7 +122,7 @@
 
     "
 //  ^ string.quoted.double.vala punctuation.definition.string.begin.vala
-    " 
+    ";
 // <- invalid.illegal.vala
  // <- invalid.illegal.vala
   // <- invalid.illegal.vala
@@ -141,5 +141,5 @@
 //  ^^^^^ string.quoted.triple.vala
     multiple lines
 //  ^^^^^^^^^^^^^^^ string.quoted.triple.vala
-    """
+    """;
 //  ^^^ string.quoted.triple.vala punctuation.definition.string.end.vala

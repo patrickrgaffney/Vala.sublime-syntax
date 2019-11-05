@@ -110,6 +110,7 @@ contexts:
       scope: constant.numeric.integer.vala
 
   strings:
+    # TODO: string templates: @"$a * $b = $(a * b)";
     - include: verbatim_strings
     - include: single_line_strings
 
