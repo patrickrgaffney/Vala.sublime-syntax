@@ -87,6 +87,14 @@
 //                                      ^^ punctuation.definition.bold.end.vala
 //                                         ^^ punctuation.definition.comment.end.vala
 
+    /** ''force <<BR>>newline'' */
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.bold.begin.vala
+//      ^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala markup.bold.vala
+//              ^^^^^^ comment.block.documentation.vala markup.bold.vala constant.character.escape.vala
+//                           ^^ punctuation.definition.bold.end.vala
+//                              ^^  punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES

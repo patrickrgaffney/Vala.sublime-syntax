@@ -67,12 +67,12 @@ contexts:
     - match: \*/
       scope: comment.block.documentation.vala punctuation.definition.comment.end.vala
       pop: true
-    # Force a newline.
-    - match: \<\<BR\>\>
-      scope: constant.character.escape.vala
     - include: documentation_inline_markup
 
   documentation_inline_markup:
+    # Force a newline.
+    - match: \<\<BR\>\>
+      scope: constant.character.escape.vala
     - include: documentation_bold_text
     - include: documentation_italic_text
     - include: documentation_underline_text

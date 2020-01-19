@@ -25,8 +25,8 @@
         - tables
         - headlines
         - inline taglets
-            - `@inheritDoc`
-            - `@link [node]`
+            - `{@inheritDoc}`
+            - `{@link [node]}`
         - block taglets
             - `@deprecated [version]`
             - `@see [node-name]`
