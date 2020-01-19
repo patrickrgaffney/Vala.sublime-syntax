@@ -36,6 +36,7 @@ contexts:
 
   comments:
     - include: line_comments
+    - include: doc_comments
     - include: block_comments
 
   line_comments:
@@ -54,6 +55,21 @@ contexts:
         - match: \*/
           scope: punctuation.definition.comment.end.vala
           pop: true
+
+  doc_comments:
+    - match: /\*\*
+      scope: comment.block.documentation.vala punctuation.definition.comment.begin.vala
+      push: documentation
+
+  documentation:
+    - meta_include_prototype: false
+    - meta_content_scope: comment.block.documentation.vala
+    - match: \*/
+      scope: comment.block.documentation.vala punctuation.definition.comment.end.vala
+      pop: true
+    # Force a newline.
+    - match: \<\<BR\>\>
+      scope: constant.character.escape.vala
 
   keywords:
     - include: type_keywords

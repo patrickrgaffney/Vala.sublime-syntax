@@ -28,6 +28,29 @@
 //    ^ -comment -punctuation
 
 /////////////////////////////////////////////////////////////////////
+// DOC COMMENTS
+/////////////////////////////////////////////////////////////////////
+
+    /** basic doc comment */
+//  ^^^ punctuation.definition.comment.begin.vala
+//  ^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//                        ^^ punctuation.definition.comment.end.vala
+
+
+    /**
+//  ^^^ comment.block.documentation.vala punctuation.definition.comment.begin.vala
+     * Include newlines<<BR>>
+//   ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//                     ^^^^^^ constant.character.escape.vala
+     * this way.
+//   ^^^^^^^^^^^^ comment.block.documentation.vala
+     */
+//   ^^ comment.block.documentation.vala punctuation.definition.comment.end.vala
+
+
+
+
+/////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
 /////////////////////////////////////////////////////////////////////
 

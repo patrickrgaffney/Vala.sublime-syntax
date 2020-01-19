@@ -4,6 +4,35 @@
     - ☑️ line comments `// comment`
     - ☑️ block comments `/* blah */`
     - [doc comments][doc-comments] `/** doc */`
+        - ☑️ start / end
+        - ☑️ `<<BR>>` newlines
+        - `''bold''`
+        - `//italic//`
+        - `__underlined__`
+        - two-backticks for block quotes
+        - numbered lists using numbers `1.`
+        - numbered lists using `#`
+        - numbered lists using `i.`
+        - numbered lists using `I.`
+        - alphabetical lists using `a.`
+        - alphabetical lists using `A.`
+        - unordered lists using `*`
+        - nested lists
+        - code blocks
+        - links
+        - images
+        - tables
+        - headlines
+        - inline tagles
+            - `@inheritDoc`
+            - `@link [node]`
+        - block taglets
+            - `@deprecated [version]`
+            - `@see [node-name]`
+            - `@param [name] [description]`
+            - `@since [version]`
+            - `@return [description]`
+            - `@throws [type] [description]`
 - ☑️ **Type Keywords**
     - ☑️ booleans
     - ☑️ integers
