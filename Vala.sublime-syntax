@@ -78,6 +78,7 @@ contexts:
     - include: documentation_underline_text
     - include: documentation_blockquote_text
     - include: documentation_link_taglet
+    - include: documentation_inheritdoc_taglet
 
   documentation_bold_text:
     - match: \'\'
@@ -126,6 +127,13 @@ contexts:
         2: storage.type.vala
         3: entity.name.section.vala
         4: punctuation.section.braces.end.vala
+
+  documentation_inheritdoc_taglet:
+    - match: ({)(@inheritDoc)(})
+      captures:
+        1: punctuation.section.braces.begin.vala
+        2: storage.type.vala
+        3: punctuation.section.braces.end.vala
 
   keywords:
     - include: type_keywords

@@ -24,8 +24,8 @@
         - images
         - tables
         - headlines
-        - ⏹ inline taglets
-            - `{@inheritDoc}`
+        - ☑️ inline taglets
+            - ☑️ `{@inheritDoc}`
             - ☑️ `{@link [node]}`
         - block taglets
             - `@deprecated [version]`
