@@ -37,15 +37,11 @@
 //                        ^^ punctuation.definition.comment.end.vala
 
 
-    /**
-//  ^^^ comment.block.documentation.vala punctuation.definition.comment.begin.vala
-     * Include newlines<<BR>>
-//   ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
-//                     ^^^^^^ constant.character.escape.vala
-     * this way.
-//   ^^^^^^^^^^^^ comment.block.documentation.vala
-     */
-//   ^^ comment.block.documentation.vala punctuation.definition.comment.end.vala
+    /** Include newlines<<BR>> */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//                      ^^^^^^ constant.character.escape.vala
+//                             ^^ punctuation.definition.comment.end.vala
 
     /** ''bold'' */
 //  ^^^^^^^^^^^^^^^ comment.block.documentation.vala
@@ -54,6 +50,14 @@
 //      ^^^^^^^^ markup.bold.vala
 //            ^^ punctuation.definition.bold.end.vala
 //               ^^ punctuation.definition.comment.end.vala
+
+    /** //italic// */
+//  ^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.italic.begin.vala
+//      ^^^^^^^^^^ markup.italic.vala
+//              ^^ punctuation.definition.italic.end.vala
+//                 ^^ punctuation.definition.comment.end.vala
 
 
 

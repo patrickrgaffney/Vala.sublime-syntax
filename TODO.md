@@ -6,8 +6,8 @@
     - [doc comments][doc-comments] `/** doc */`
         - ☑️ start / end
         - ☑️ `<<BR>>` newlines
-        - `''bold''`
-        - `//italic//`
+        - ☑️ `''bold''`
+        - ☑️ `//italic//`
         - `__underlined__`
         - two-backticks for block quotes
         - numbered lists using numbers `1.`
