@@ -70,9 +70,13 @@ contexts:
     # Force a newline.
     - match: \<\<BR\>\>
       scope: constant.character.escape.vala
+    - include: documentation_inline_markup
+
+  documentation_inline_markup:
     - include: documentation_bold_text
     - include: documentation_italic_text
     - include: documentation_underline_text
+    - include: documentation_blockquote_text
 
   documentation_bold_text:
     - match: \'\'
@@ -99,6 +103,15 @@ contexts:
         - meta_scope: markup.underline.vala
         - match: \_\_
           scope: punctuation.definition.underline.end.vala
+          pop: true
+
+  documentation_blockquote_text:
+    - match: \`\`
+      scope: punctuation.definition.blockquote.begin.vala
+      push:
+        - meta_scope: markup.quote.vala
+        - match: \`\`
+          scope: punctuation.definition.blockquote.end.vala
           pop: true
 
   keywords:

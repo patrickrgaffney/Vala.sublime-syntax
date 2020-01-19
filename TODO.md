@@ -9,7 +9,8 @@
         - ☑️ `''bold''`
         - ☑️ `//italic//`
         - ☑️ `__underlined__`
-        - two-backticks for block quotes
+        - ☑️ two-backticks for block quotes
+        - allows 
         - numbered lists using numbers `1.`
         - numbered lists using `#`
         - numbered lists using `i.`
@@ -23,7 +24,7 @@
         - images
         - tables
         - headlines
-        - inline tagles
+        - inline taglets
             - `@inheritDoc`
             - `@link [node]`
         - block taglets

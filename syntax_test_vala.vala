@@ -67,6 +67,14 @@
 //                 ^^ punctuation.definition.underline.end.vala
 //                    ^^ punctuation.definition.comment.end.vala
 
+    /** ``blockquote`` */
+//  ^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.blockquote.begin.vala
+//      ^^^^^^^^^^^^^^ markup.quote.vala
+//                  ^^ punctuation.definition.blockquote.end.vala
+//                     ^^ punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
