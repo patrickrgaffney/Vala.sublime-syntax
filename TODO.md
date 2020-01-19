@@ -10,7 +10,7 @@
         - ☑️ `//italic//`
         - ☑️ `__underlined__`
         - ☑️ two-backticks for block quotes
-        - allows 
+        - ☑️ allows nested inline modifiers
         - numbered lists using numbers `1.`
         - numbered lists using `#`
         - numbered lists using `i.`

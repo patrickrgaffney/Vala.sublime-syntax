@@ -75,6 +75,18 @@
 //                  ^^ punctuation.definition.blockquote.end.vala
 //                     ^^ punctuation.definition.comment.end.vala
 
+    /** ''//__bold italic underlined__//'' */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.bold.begin.vala
+//        ^^ punctuation.definition.italic.begin.vala
+//          ^^ punctuation.definition.underline.begin.vala
+//            ^^^^^^^^^^^^^^^^^^^^^^ markup.bold.vala markup.italic.vala markup.underline.vala
+//                                  ^^ punctuation.definition.underline.end.vala
+//                                    ^^ punctuation.definition.italic.end.vala
+//                                      ^^ punctuation.definition.bold.end.vala
+//                                         ^^ punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES

@@ -86,6 +86,7 @@ contexts:
         - match: \'\'
           scope: punctuation.definition.bold.end.vala
           pop: true
+        - include: documentation_inline_markup
 
   documentation_italic_text:
     - match: \/\/
@@ -95,6 +96,7 @@ contexts:
         - match: \/\/
           scope: punctuation.definition.italic.end.vala
           pop: true
+        - include: documentation_inline_markup
 
   documentation_underline_text:
     - match: \_\_
@@ -104,6 +106,7 @@ contexts:
         - match: \_\_
           scope: punctuation.definition.underline.end.vala
           pop: true
+        - include: documentation_inline_markup
 
   documentation_blockquote_text:
     - match: \`\`
@@ -113,6 +116,7 @@ contexts:
         - match: \`\`
           scope: punctuation.definition.blockquote.end.vala
           pop: true
+        - include: documentation_inline_markup
 
   keywords:
     - include: type_keywords
