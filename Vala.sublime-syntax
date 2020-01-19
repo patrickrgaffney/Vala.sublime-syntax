@@ -67,6 +67,7 @@ contexts:
     - match: \*/
       scope: comment.block.documentation.vala punctuation.definition.comment.end.vala
       pop: true
+    - include: documentation_block_markup
     - include: documentation_inline_markup
 
   documentation_inline_markup:
@@ -80,6 +81,15 @@ contexts:
     - include: documentation_link_taglet
     - include: documentation_inheritdoc_taglet
 
+  documentation_block_markup:
+    - include: documentation_block_list
+
+  documentation_block_list:
+    - match: ^\s+(?:\*)[ ]{2,}((\d*\.|#|i\.|I\.|a\.|A\.)|(\*))\s+
+      captures:
+        2: markup.list.numbered.vala
+        3: markup.list.unnumbered.vala
+
   documentation_bold_text:
     - match: \'\'
       scope: punctuation.definition.bold.begin.vala
@@ -91,7 +101,8 @@ contexts:
         - include: documentation_inline_markup
 
   documentation_italic_text:
-    - match: \/\/
+    # Force a non-WS character for testing purposes.
+    - match: \/\/(?!\s)
       scope: punctuation.definition.italic.begin.vala
       push:
         - meta_scope: markup.italic.vala

@@ -112,6 +112,36 @@
 //                  ^ punctuation.section.braces.end.vala
 //                    ^^ punctuation.definition.comment.end.vala
 
+    /**
+     * ordered and unordered lists
+     *
+     *  1. numbered list
+//      ^^ markup.list.numbered.vala
+     *
+     *  # numbered list
+//      ^ markup.list.numbered.vala
+     *
+     *  i. numbered list
+//      ^^ markup.list.numbered.vala
+     *
+     *  I. numbered list
+//      ^^ markup.list.numbered.vala
+     *
+     *  a. alphabetical list
+//      ^^ markup.list.numbered.vala
+     *
+     *  A. alphabetical list
+//      ^^ markup.list.numbered.vala
+     *
+     *  * doted list
+//      ^ markup.list.unnumbered.vala
+     *
+     *  A. alphabetical list
+//      ^^ markup.list.numbered.vala
+     *    a. alphabetical list
+//        ^^ markup.list.numbered.vala
+     */
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
