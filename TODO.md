@@ -8,7 +8,7 @@
         - ☑️ `<<BR>>` newlines
         - ☑️ `''bold''`
         - ☑️ `//italic//`
-        - `__underlined__`
+        - ☑️ `__underlined__`
         - two-backticks for block quotes
         - numbered lists using numbers `1.`
         - numbered lists using `#`

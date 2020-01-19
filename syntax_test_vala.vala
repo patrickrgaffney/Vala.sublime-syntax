@@ -59,6 +59,13 @@
 //              ^^ punctuation.definition.italic.end.vala
 //                 ^^ punctuation.definition.comment.end.vala
 
+    /** __underline__ */
+//  ^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.underline.begin.vala
+//      ^^^^^^^^^^^^^ markup.underline.vala
+//                 ^^ punctuation.definition.underline.end.vala
+//                    ^^ punctuation.definition.comment.end.vala
 
 
 /////////////////////////////////////////////////////////////////////

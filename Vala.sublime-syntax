@@ -72,6 +72,7 @@ contexts:
       scope: constant.character.escape.vala
     - include: documentation_bold_text
     - include: documentation_italic_text
+    - include: documentation_underline_text
 
   documentation_bold_text:
     - match: \'\'
@@ -89,6 +90,15 @@ contexts:
         - meta_scope: markup.italic.vala
         - match: \/\/
           scope: punctuation.definition.italic.end.vala
+          pop: true
+
+  documentation_underline_text:
+    - match: \_\_
+      scope: punctuation.definition.underline.begin.vala
+      push:
+        - meta_scope: markup.underline.vala
+        - match: \_\_
+          scope: punctuation.definition.underline.end.vala
           pop: true
 
   keywords:
