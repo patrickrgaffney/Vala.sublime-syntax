@@ -47,6 +47,13 @@
      */
 //   ^^ comment.block.documentation.vala punctuation.definition.comment.end.vala
 
+    /** ''bold'' */
+//  ^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.definition.bold.begin.vala
+//      ^^^^^^^^ markup.bold.vala
+//            ^^ punctuation.definition.bold.end.vala
+//               ^^ punctuation.definition.comment.end.vala
 
 
 

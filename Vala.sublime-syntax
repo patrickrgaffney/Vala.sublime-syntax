@@ -70,6 +70,15 @@ contexts:
     # Force a newline.
     - match: \<\<BR\>\>
       scope: constant.character.escape.vala
+    # Bold text.
+    - match: \'\'
+      scope: punctuation.definition.bold.begin.vala
+      push:
+        - meta_scope: markup.bold.vala
+        - match: \'\'
+          scope: punctuation.definition.bold.end.vala
+          pop: true
+
 
   keywords:
     - include: type_keywords
