@@ -11,7 +11,7 @@ variables:
   # or underscore, followed by any number (zero or more) of
   # alphanumerics or underscores.
   # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
-  identifier: \b[[:alpha:]_]([[:alnum:]_])*\b
+  identifier: \b[[:alpha:]_](?:[[:alnum:]_])*\b
 
   boolean_type_name: bool
   integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
@@ -77,6 +77,7 @@ contexts:
     - include: documentation_italic_text
     - include: documentation_underline_text
     - include: documentation_blockquote_text
+    - include: documentation_link_taglet
 
   documentation_bold_text:
     - match: \'\'
@@ -117,6 +118,14 @@ contexts:
           scope: punctuation.definition.blockquote.end.vala
           pop: true
         - include: documentation_inline_markup
+
+  documentation_link_taglet:
+    - match: ({)(@link)\s+({{identifier}})(})
+      captures:
+        1: punctuation.section.braces.begin.vala
+        2: storage.type.vala
+        3: entity.name.section.vala
+        4: punctuation.section.braces.end.vala
 
   keywords:
     - include: type_keywords

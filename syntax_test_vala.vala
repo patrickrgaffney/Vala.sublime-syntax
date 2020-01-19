@@ -95,6 +95,15 @@
 //                           ^^ punctuation.definition.bold.end.vala
 //                              ^^  punctuation.definition.comment.end.vala
 
+    /** inline {@link thing} */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//             ^ punctuation.section.braces.begin.vala
+//              ^^^^^ storage.type.vala
+//                    ^^^^^ entity.name.section.vala
+//                         ^ punctuation.section.braces.end.vala
+//                           ^^ punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES

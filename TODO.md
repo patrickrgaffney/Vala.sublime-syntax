@@ -3,7 +3,7 @@
 - ⏹ **Comments**
     - ☑️ line comments `// comment`
     - ☑️ block comments `/* blah */`
-    - [doc comments][doc-comments] `/** doc */`
+    - ⏹ [doc comments][doc-comments] `/** doc */`
         - ☑️ start / end
         - ☑️ `<<BR>>` newlines
         - ☑️ `''bold''`
@@ -24,9 +24,9 @@
         - images
         - tables
         - headlines
-        - inline taglets
+        - ⏹ inline taglets
             - `{@inheritDoc}`
-            - `{@link [node]}`
+            - ☑️ `{@link [node]}`
         - block taglets
             - `@deprecated [version]`
             - `@see [node-name]`
