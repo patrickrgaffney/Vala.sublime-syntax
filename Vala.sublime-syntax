@@ -252,6 +252,9 @@ contexts:
 
   operators:
     - include: semicolon
+    # Global namespace operator
+    - match: 'global::'
+      scope: keyword.operator.word.vala
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
       scope: keyword.operator.assignment.vala
