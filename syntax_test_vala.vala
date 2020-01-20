@@ -492,6 +492,16 @@
 //      ^ punctuation.accessor.dot.vala
 //       ^^^^^^^^^^^ variable.other.member.vala
 
+/** Works on any expressions. */
+
+    ( some_thing ).something_else
+//  ^^^^^^^^^^^^^^ meta.group.vala
+//  ^ punctuation.section.parens.begin.vala
+//    ^^^^^^^^^^ variable.other.readwrite.vala
+//               ^ punctuation.section.parens.end.vala
+//                ^ punctuation.accessor.dot.vala
+//                 ^^^^^^^^^^^^^^ variable.other.member.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
