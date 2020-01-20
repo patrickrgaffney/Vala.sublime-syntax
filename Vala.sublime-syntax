@@ -26,6 +26,10 @@ variables:
   string_escape: \\[bfnrtv"]
 
   access_modifier: public|private
+  func_param_direction: out|ref
+
+  # Lookahead for a paren group followed by an arrow operator.
+  lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
 
 contexts:
   prototype:
@@ -267,6 +271,7 @@ contexts:
 
   expressions:
     - include: pointer_member_expression
+    - include: lambda_expression
     - include: operators
     - include: language_constants
     - include: number_literals
@@ -409,6 +414,50 @@ contexts:
         - match: '"""'
           scope: punctuation.definition.string.end.vala
           pop: true
+
+#####################################################################
+# Lambdas
+#####################################################################
+
+  lambda_expression:
+    - match: (?={{lambda_lookahead}})
+      set: lambda_declaration
+
+  lambda_declaration:
+    - meta_include_prototype: false
+    - match: ''
+      set: lambda_expression_parameters
+
+  lambda_expression_parameters:
+    - match: \(
+      scope: punctuation.section.group.begin.vala
+      set:
+        - meta_scope: meta.function.parameters.vala
+        - match: \)
+          scope: punctuation.section.group.end.vala
+          set: lambda_expression_arrow
+        - match: \b({{func_param_direction}})\b
+          scope: keyword.control.vala
+        - match: '{{identifier}}'
+          scope: variable.parameter.vala
+        - match: \,
+          scope: punctuation.separator.vala
+
+  lambda_expression_arrow:
+    - match: =>
+      scope: storage.type.function.arrow.vala
+      set: lambda_function_body
+
+  lambda_function_body:
+    - match: \{
+      scope: punctuation.section.braces.begin.vala
+      set:
+        # TODO: only statements and expressions
+        - meta_scope: meta.function.vala
+        - match: \}
+          scope: punctuation.section.braces.end.vala
+          pop: true
+        - include: main
 
 #####################################################################
 # Namespaces

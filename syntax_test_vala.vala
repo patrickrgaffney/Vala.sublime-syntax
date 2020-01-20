@@ -496,6 +496,53 @@
 //                                    ^ punctuation.section.group.end.vala
 
 /////////////////////////////////////////////////////////////////////
+// LAMBDAS
+/////////////////////////////////////////////////////////////////////
+
+    () => {};
+//  ^^ meta.function.parameters.vala
+//  ^ punctuation.section.group.begin.vala
+//   ^ punctuation.section.group.end.vala
+//     ^^ storage.type.function.arrow.vala
+//        ^^ meta.function.vala
+//        ^ punctuation.section.braces.begin.vala
+//         ^ punctuation.section.braces.end.vala
+
+/** Matches parameters and commas. */
+
+    (a, b, c) => {};
+//  ^^^^^^^^^ meta.function.parameters.vala
+//  ^ punctuation.section.group.begin.vala
+//   ^ variable.parameter.vala
+//    ^ punctuation.separator.vala
+//      ^ variable.parameter.vala
+//       ^ punctuation.separator.vala
+//         ^ variable.parameter.vala
+//          ^ punctuation.section.group.end.vala
+//            ^^ storage.type.function.arrow.vala
+//               ^^ meta.function.vala
+//               ^ punctuation.section.braces.begin.vala
+//                ^ punctuation.section.braces.end.vala
+
+/** Parameter direction keywords. */
+
+    (out a, ref b, c) => {/*...*/};
+//  ^^^^^^^^^^^^^^^^^ meta.function.parameters.vala
+//  ^ punctuation.section.group.begin.vala
+//   ^^^ keyword.control.vala
+//       ^ variable.parameter.vala
+//        ^ punctuation.separator.vala
+//          ^^^ keyword.control.vala
+//              ^ variable.parameter.vala
+//               ^ punctuation.separator.vala
+//                 ^ variable.parameter.vala
+//                  ^ punctuation.section.group.end.vala
+//                    ^^ storage.type.function.arrow.vala
+//                       ^^^^^^^^^ meta.function.vala
+//                       ^ punctuation.section.braces.begin.vala
+//                               ^ punctuation.section.braces.end.vala
+
+/////////////////////////////////////////////////////////////////////
 // MEMBER ACCESS
 /////////////////////////////////////////////////////////////////////
 
