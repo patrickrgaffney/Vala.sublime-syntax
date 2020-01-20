@@ -82,13 +82,24 @@ contexts:
     - include: documentation_inheritdoc_taglet
 
   documentation_block_markup:
-    - include: documentation_block_list
+    - include: documentation_code_block
+    - include: documentation_list_block
 
-  documentation_block_list:
+  documentation_list_block:
     - match: ^\s+(?:\*)[ ]{2,}((\d*\.|#|i\.|I\.|a\.|A\.)|(\*))\s+
       captures:
         2: markup.list.numbered.vala
         3: markup.list.unnumbered.vala
+
+  documentation_code_block:
+    - match: ^\s+(?:\*)[ ]+({{{)
+      captures:
+        1: punctuation.section.braces.begin.vala
+      push:
+        - meta_content_scope: markup.raw.block.vala
+        - match: '}}}'
+          scope: punctuation.section.braces.end.vala
+          pop: true
 
   documentation_bold_text:
     - match: \'\'

@@ -142,6 +142,19 @@
 //        ^^ markup.list.numbered.vala
      */
 
+    /**
+     * Code blocks
+     *
+     * {{{
+//     ^^^ punctuation.section.braces.begin.vala
+     *   static int main (string[] arg) {
+     *      return 0;
+     *   }
+     * }}}
+//     ^^^ punctuation.section.braces.end.vala
+     *
+     */
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
