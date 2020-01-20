@@ -88,6 +88,12 @@ contexts:
     - include: documentation_list_block
     - include: documentation_table_block
     - include: documentation_headline_block
+    - include: documentation_deprecated_taglet
+    - include: documentation_see_taglet
+    - include: documentation_param_taglet
+    - include: documentation_since_taglet
+    - include: documentation_return_taglet
+    - include: documentation_throws_taglet
 
   documentation_list_block:
     - match: ^\s+(?:\*)[ ]{2,}((\d*\.|#|i\.|I\.|a\.|A\.)|(\*))\s+
@@ -202,6 +208,39 @@ contexts:
         1: punctuation.section.braces.begin.vala
         2: storage.type.vala
         3: punctuation.section.braces.end.vala
+
+  documentation_deprecated_taglet:
+    - match: (@deprecated)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_see_taglet:
+    - match: (@see)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: entity.name.section.vala
+
+  documentation_param_taglet:
+    - match: (@param)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: variable.parameter.vala
+
+  documentation_since_taglet:
+    - match: (@since)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_return_taglet:
+    - match: (@return)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_throws_taglet:
+    - match: (@throws)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: entity.name.type.vala
 
   keywords:
     - include: type_keywords

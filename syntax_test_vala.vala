@@ -225,6 +225,45 @@
 //                     ^^^^ punctuation.definition.heading.vala
     */
 
+    /** @deprecated v1.0.0 */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^^^^^^^^ storage.type.vala
+//                         ^^ punctuation.definition.comment.end.vala
+
+    /** @see other_section */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^ storage.type.vala
+//           ^^^^^^^^^^^^^ entity.name.section.vala
+//                         ^^ punctuation.definition.comment.end.vala
+
+    /** @param name description */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^^^ storage.type.vala
+//             ^^^^ variable.parameter.vala
+//                              ^^ punctuation.definition.comment.end.vala
+
+    /** @since v1.1.1 */
+//  ^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^^^ storage.type.vala
+//                    ^^ punctuation.definition.comment.end.vala
+
+    /** @return description */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^^^^ storage.type.vala
+//                          ^^ punctuation.definition.comment.end.vala
+
+    /** @throws type description */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^^^^^^ storage.type.vala
+//              ^^^^ entity.name.type.vala
+//                               ^^ punctuation.definition.comment.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
 /////////////////////////////////////////////////////////////////////
