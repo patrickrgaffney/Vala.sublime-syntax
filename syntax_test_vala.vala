@@ -771,6 +771,19 @@
 //                                                ^ keyword.operator.assignment.vala
 //                                                  ^^^ constant.numeric.integer.vala
 
+/** Local variable definitions. */
+
+    var block = new Block (source_reference);
+//  ^^^ storage.type.vala
+//      ^^^^^ variable.other.readwrite.vala
+//            ^ keyword.operator.assignment.vala
+//              ^^^ keyword.operator.word.vala
+//                  ^^^^^ support.type.vala
+//                        ^^^^^^^^^^^^^^^^^^ meta.group.vala
+//                        ^ punctuation.section.parens.begin.vala
+//                         ^^^^^^^^^^^^^^^^ variable.other.readwrite.vala
+//                                         ^ punctuation.section.parens.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
