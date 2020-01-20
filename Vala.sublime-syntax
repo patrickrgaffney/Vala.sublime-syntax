@@ -366,6 +366,9 @@ contexts:
         - match: \b({{namespace_identifier}})\b
           scope: support.type.vala
 
+#####################################################################
+# Constants & Literals
+#####################################################################
 
   language_constants:
     - match: \b(true|false|null)\b
@@ -489,8 +492,14 @@ contexts:
     - include: field_declarations
 
   field_declarations:
-    # field-declaration: [ access-modifier ] qualified-type-name field-name [ = expression ] ;
-    - match: (?:\b({{access_modifier}})\b\s+)?\b(?:({{builtin_type}})|({{identifier}}))\b
+    # [ access-modifier ] qualified_type_name field_name [ = expression ] ;
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# consume a built-in type or assume its a user type)
+          \b(?:({{builtin_type}})|({{identifier}}))\b
+        )
       captures:
         1: storage.modifier.vala
         2: storage.type.vala
@@ -499,7 +508,6 @@ contexts:
         # Catch the field-name.
         - match: '{{identifier}}'
           scope: variable.other.readwrite.vala
-        # Set up rvalue to pop on terminator.
         - match: =
           scope: keyword.operator.assignment.vala
           set: rvalue_pop_on_terminator
@@ -508,8 +516,16 @@ contexts:
           pop: true
 
   constant_declarations:
-    # constant-declaration: [ access-modifier ] const qualified-type-name constant-name = expression ;
-    - match: (?:\b({{access_modifier}})\b\s+)?\b(const)\b\s+(?:({{builtin_type}})|({{namespace_identifier}}))\b
+    # [ access_modifier ] const qualified_type_name constant_name = expression ;
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# the const keyword)
+          \b(const)\b\s+
+          (?# consume a built-in type or assume its a user type)
+          \b(?:({{builtin_type}})|({{namespace_identifier}}))\b
+        )
       captures:
         1: storage.modifier.vala
         2: storage.modifier.vala
@@ -519,7 +535,6 @@ contexts:
         # Catch the field-name.
         - match: '{{identifier}}'
           scope: variable.other.readwrite.vala
-        # Set up rvalue to pop on terminator.
         - match: =
           scope: keyword.operator.assignment.vala
           set: rvalue_pop_on_terminator
