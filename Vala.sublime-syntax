@@ -249,6 +249,10 @@ contexts:
     - include: type_keywords
 
   expressions:
+    - match: (->)({{identifier}})
+      captures:
+        1: punctuation.accessor.arrow.vala
+        2: variable.other.member.vala
     - include: operators
     - include: language_constants
     - include: number_literals

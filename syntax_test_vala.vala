@@ -494,13 +494,31 @@
 
 /** Works on any expressions. */
 
-    ( some_thing ).something_else
+    ( some_thing ).something_else;
 //  ^^^^^^^^^^^^^^ meta.group.vala
 //  ^ punctuation.section.parens.begin.vala
 //    ^^^^^^^^^^ variable.other.readwrite.vala
 //               ^ punctuation.section.parens.end.vala
 //                ^ punctuation.accessor.dot.vala
 //                 ^^^^^^^^^^^^^^ variable.other.member.vala
+
+/** Pointer member access. */
+
+    ptr->member;
+//  ^^^ variable.other.readwrite.vala
+//     ^^ punctuation.accessor.arrow.vala
+//       ^^^^^^ variable.other.member.vala
+
+/** Pointer access on any expression. */
+
+    (*thing)->member;
+//  ^^^^^^^^ meta.group.vala
+//  ^ punctuation.section.parens.begin.vala
+//   ^ keyword.operator.arithmetic.vala
+//    ^^^^^ variable.other.readwrite.vala
+//         ^ meta.group.vala punctuation.section.parens.end.vala
+//          ^^ punctuation.accessor.arrow.vala
+//            ^^^^^^ variable.other.member.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
