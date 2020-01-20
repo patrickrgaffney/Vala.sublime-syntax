@@ -298,42 +298,31 @@ contexts:
   operators:
     - match: ;
       scope: punctuation.terminator.vala
-    # Ownership transfer.
     - match: ([(])(owned)([)])
       scope: keyword.operator.word.vala
     - include: parens
     - include: brackets
     - include: sizeof_typeof_operators
-    # Global namespace operator
     - match: 'global::'
       scope: keyword.operator.word.vala
-    # Delete operator for pointers and arrays.
     - match: \bdelete\b
       scope: keyword.operator.word.vala
-    # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
       scope: keyword.operator.assignment.vala
-    # Bitwise-shift operators.
     - match: (<<|>>)
       scope: keyword.operator.bitwise.vala
-    # Relational operators
     - match: (==|!=|<=|<|>=|>)
       scope: keyword.operator.comparison.vala
     - match: =
       scope: keyword.operator.assignment.vala
-    # Arithmetic operators.
     - match: (\+\+|--|\+|-|\*|\/|%)
       scope: keyword.operator.arithmetic.vala
-    # Logical operators.
     - match: (\|\||&&|!)
       scope: keyword.operator.logical.vala
-    # Bitwise operators.
     - match: (\||\^|&|~|)
       scope: keyword.operator.bitwise.vala
-    # Coalescing operator
     - match: \?\?
       scope: keyword.operator.vala
-    # Conditional operators
     - match: (\?|\:)
       scope: keyword.operator.vala
 
