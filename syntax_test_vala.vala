@@ -525,4 +525,12 @@
 //                       ^^^string.quoted.double.vala
 //                          ^ punctuation.terminator.vala
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+        string s2 = global::other_string;
+//      ^^^^^^ storage.type.vala
+//             ^^ variable.other.readwrite.vala
+//                ^ keyword.operator.assignment.vala
+//                  ^^^^^^^^ keyword.operator.word.vala
+//                          ^^^^^^^^^^^^ variable.other.readwrite.vala
+//                                      ^ punctuation.terminator.vala
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
     }

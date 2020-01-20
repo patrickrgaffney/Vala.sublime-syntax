@@ -31,7 +31,6 @@ contexts:
   main:
     - include: keywords
     - include: expressions
-    - include: operators
     - include: namespace_declarations
 
   comments:
@@ -246,6 +245,7 @@ contexts:
     - include: type_keywords
 
   expressions:
+    - include: operators
     - include: language_constants
     - include: number_literals
     - include: strings
@@ -374,7 +374,10 @@ contexts:
           scope: variable.other.readwrite.vala
         - match: =
           scope: keyword.operator.assignment.vala
-        - match: \;
-          scope: punctuation.terminator.vala
-          pop: true
-        - include: expressions
+          set:
+          - match: \;
+            scope: punctuation.terminator.vala
+            pop: true
+          - include: expressions
+          - match: '{{identifier}}'
+            scope: variable.other.readwrite.vala
