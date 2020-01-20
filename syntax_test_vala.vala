@@ -170,6 +170,22 @@
 //                        ^^ punctuation.section.brackets.end.vala
 //                           ^^ punctuation.definition.comment.end.vala
 
+    /** {{/images/favicon.png}} */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.section.brackets.begin.vala
+//                           ^^ punctuation.section.brackets.end.vala
+//                              ^^ punctuation.definition.comment.end.vala
+
+
+    /** {{/images/favicon.png|alt-message}} */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.section.brackets.begin.vala
+//                           ^ punctuation.separator.vala
+//                                       ^^ punctuation.section.brackets.end.vala
+//                                          ^^ punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
