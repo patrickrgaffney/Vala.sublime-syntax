@@ -468,6 +468,21 @@
 //  ^^^^^^^ keyword.operator.word.vala
 //          ^ variable.other.readwrite.vala
 
+    [ 1, 2, [ 3, 4 ]];
+//  ^^^^^^^^^^^^^^^^^ meta.brackets.vala
+//  ^ punctuation.section.brackets.begin.vala
+//    ^ constant.numeric.integer.vala
+//     ^ punctuation.separator.vala
+//       ^ constant.numeric.integer.vala
+//        ^ punctuation.separator.vala
+//          ^^^^^^^^ meta.brackets.vala meta.brackets.vala
+//          ^ punctuation.section.brackets.begin.vala
+//            ^ constant.numeric.integer.vala
+//             ^ punctuation.separator.vala
+//               ^ constant.numeric.integer.vala
+//                 ^ punctuation.section.brackets.end.vala
+//                  ^ punctuation.section.brackets.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // MEMBER ACCESS

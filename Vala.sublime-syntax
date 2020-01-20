@@ -272,6 +272,7 @@ contexts:
     - match: ([(])(owned)([)])
       scope: keyword.operator.word.vala
     - include: parens
+    - include: brackets
     # Global namespace operator
     - match: 'global::'
       scope: keyword.operator.word.vala
@@ -314,6 +315,18 @@ contexts:
         - include: expressions
         - match: \)
           scope: punctuation.section.parens.end.vala
+          pop: true
+
+  brackets:
+    - match: \[
+      scope: punctuation.section.brackets.begin.vala
+      push:
+        - meta_scope: meta.brackets.vala
+        - include: expressions
+        - match: \,
+          scope: punctuation.separator.vala
+        - match: \]
+          scope: punctuation.section.brackets.end.vala
           pop: true
 
   type_keywords:
