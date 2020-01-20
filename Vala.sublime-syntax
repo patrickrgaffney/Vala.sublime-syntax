@@ -249,25 +249,38 @@ contexts:
     - include: type_keywords
 
   expressions:
-    - match: (->)({{identifier}})
-      captures:
-        1: punctuation.accessor.arrow.vala
-        2: variable.other.member.vala
+    - include: pointer_member_expression
     - include: operators
     - include: language_constants
     - include: number_literals
     - include: strings
-    - match: \bthis\b
-      scope: variable.language.vala
+    - include: this_expression
+    - include: struct_member_expression
+    # Catch all unknown identifiers.
+    - match: '{{identifier}}'
+      scope: variable.other.readwrite.vala
+
+  # TODO: handle function calls.
+  pointer_member_expression:
+    - match: (->)({{identifier}})
+      captures:
+        1: punctuation.accessor.arrow.vala
+        2: variable.other.member.vala
+
+  # TODO: handle method calls.
+  struct_member_expression:
     - match: ([.])({{identifier}})
       captures:
         1: punctuation.accessor.dot.vala
         2: variable.other.member.vala
-    - match: '{{identifier}}'
-      scope: variable.other.readwrite.vala
+
+  this_expression:
+    - match: \bthis\b
+      scope: variable.language.vala
 
   operators:
-    - include: semicolon
+    - match: ;
+      scope: punctuation.terminator.vala
     # Ownership transfer.
     - match: ([(])(owned)([)])
       scope: keyword.operator.word.vala
@@ -302,10 +315,6 @@ contexts:
     # Conditional operators
     - match: (\?|\:)
       scope: keyword.operator.vala
-
-  semicolon:
-    - match: ;
-      scope: punctuation.terminator.vala
 
   parens:
     - match: \(
@@ -443,7 +452,7 @@ contexts:
           set: rvalue_pop_on_terminator
 
   using_statement:
-    # using namespace-list ;
+    # using namespace-name [, namespace-name] ;
     - match: \busing\b\s+
       scope: keyword.control.import.vala
       push:
