@@ -30,6 +30,7 @@ variables:
   jump_statement_keywords: break|continue|return|throw|yield
   ownership_modifiers: unowned|owned
   selection_statements: if|else|switch|case|default
+  while_statements: do|while
 
   # Lookahead for a paren group followed by an arrow operator.
   lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
@@ -280,6 +281,7 @@ contexts:
     - include: ownership_modifiers
     - include: var_keyword
     - include: selection_keywords
+    - include: while_keywords
 
   type_keywords:
     - match: '\b({{builtin_type}})\b'
@@ -300,6 +302,10 @@ contexts:
   selection_keywords:
     - match: \b({{selection_statements}})\b
       scope: keyword.control.conditional.vala
+
+  while_keywords:
+    - match: \b({{while_statements}})\b
+      scope: keyword.control.loop.vala
 
 #####################################################################
 # Expressions

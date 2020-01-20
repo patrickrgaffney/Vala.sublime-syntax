@@ -708,6 +708,12 @@
 //                             ^^^^ keyword.control.conditional.vala
 //                                   ^^^^^^^ keyword.control.conditional.vala
 
+/** While-loop statements. */
+
+    do; while;
+//  ^^ keyword.control.loop.vala
+//      ^^^^^ keyword.control.loop.vala
+
 /** foreach statements. */
 
     foreach (int a in int_array) {/*....*/}
