@@ -206,6 +206,24 @@
      *
      */
 
+    /**
+    * = headline 1 =
+//    ^ punctuation.definition.heading.vala
+//      ^^^^^^^^^^^ markup.heading.vala
+//                 ^ punctuation.definition.heading.vala
+    * == healdline 2 ==
+//    ^^ punctuation.definition.heading.vala
+//       ^^^^^^^^^^^^ markup.heading.vala
+//                   ^^ punctuation.definition.heading.vala
+    * === healdline 3 ===
+//    ^^^ punctuation.definition.heading.vala
+//        ^^^^^^^^^^^^ comment.block.documentation.vala markup.heading.vala
+//                    ^^^ punctuation.definition.heading.vala
+    * ==== healdline 4 ====
+//    ^^^^ punctuation.definition.heading.vala
+//         ^^^^^^^^^^^^ markup.heading.vala
+//                     ^^^^ punctuation.definition.heading.vala
+    */
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
