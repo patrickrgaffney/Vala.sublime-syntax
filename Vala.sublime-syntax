@@ -309,6 +309,7 @@ contexts:
     - include: brackets
     - include: sizeof_typeof_operators
     - include: as_is_operators
+    - include: new_operator
     - match: 'global::'
       scope: keyword.operator.word.vala
     - match: \bdelete\b
@@ -369,6 +370,19 @@ contexts:
 
   as_is_operators:
     - match: \b(as|is)\b\s*
+      captures:
+        1: keyword.operator.word.vala
+      push:
+        - match: '\b({{builtin_type}})\b'
+          scope: storage.type.vala
+          pop: true
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+          pop: true
+        - include: else-pop
+
+  new_operator:
+    - match: \b(new)\b\s+
       captures:
         1: keyword.operator.word.vala
       push:

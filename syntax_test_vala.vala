@@ -503,6 +503,27 @@
 //                            ^^ keyword.operator.word.vala
 //                               ^^^^^^^^^ support.type.vala
 
+    new int[3,4]; new Person(); new Button.with_label("click me");
+//  ^^^ keyword.operator.word.vala
+//      ^^^ storage.type.vala
+//         ^^^^^ meta.brackets.vala
+//         ^ punctuation.section.brackets.begin.vala
+//          ^ constant.numeric.integer.vala
+//           ^ punctuation.separator.vala
+//            ^ constant.numeric.integer.vala
+//             ^ punctuation.section.brackets.end.vala
+//                ^^^ keyword.operator.word.vala
+//                    ^^^^^^ support.type.vala
+//                          ^^ meta.group.vala
+//                          ^ punctuation.section.parens.begin.vala
+//                           ^ punctuation.section.parens.end.vala
+//                              ^^^ keyword.operator.word.vala
+//                                  ^^^^^^^^^^^^^^^^^ support.type.vala
+//                                                   ^^^^^^^^^^^^ meta.group.vala
+//                                                   ^ punctuation.section.parens.begin.vala
+//                                                    ^^^^^^^^^^ string.quoted.double.vala
+//                                                              ^ punctuation.section.parens.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // LAMBDAS
 /////////////////////////////////////////////////////////////////////
