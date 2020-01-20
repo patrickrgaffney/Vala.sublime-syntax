@@ -78,6 +78,7 @@ contexts:
     - include: documentation_italic_text
     - include: documentation_underline_text
     - include: documentation_blockquote_text
+    - include: documentation_link
     - include: documentation_link_taglet
     - include: documentation_inheritdoc_taglet
 
@@ -141,6 +142,16 @@ contexts:
           scope: punctuation.definition.blockquote.end.vala
           pop: true
         - include: documentation_inline_markup
+
+  documentation_link:
+    - match: \[\[
+      scope: punctuation.section.brackets.begin.vala
+      push:
+        - match: \|
+          scope: punctuation.separator.vala
+        - match: \]\]
+          scope: punctuation.section.brackets.end.vala
+          pop: true
 
   documentation_link_taglet:
     - match: ({)(@link)\s+({{identifier}})(})

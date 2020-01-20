@@ -155,6 +155,21 @@
      *
      */
 
+    /** [[http://google.at|google]] */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.section.brackets.begin.vala
+//                        ^ punctuation.separator.vala
+//                               ^^ punctuation.section.brackets.end.vala
+//                                  ^^ punctuation.definition.comment.end.vala
+
+    /** [[http://google.at]] */
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^ comment.block.documentation.vala
+//  ^^^ punctuation.definition.comment.begin.vala
+//      ^^ punctuation.section.brackets.begin.vala
+//                        ^^ punctuation.section.brackets.end.vala
+//                           ^^ punctuation.definition.comment.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
