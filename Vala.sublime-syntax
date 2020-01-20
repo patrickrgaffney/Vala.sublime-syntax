@@ -262,6 +262,7 @@ contexts:
 
   operators:
     - include: semicolon
+    - include: parens
     # Global namespace operator
     - match: 'global::'
       scope: keyword.operator.word.vala
@@ -295,6 +296,16 @@ contexts:
   semicolon:
     - match: ;
       scope: punctuation.terminator.vala
+
+  parens:
+    - match: \(
+      scope: punctuation.section.parens.begin.vala
+      push:
+        - meta_scope: meta.group.vala
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.parens.end.vala
+          pop: true
 
   type_keywords:
     - match: '\b({{builtin_type}})\b'

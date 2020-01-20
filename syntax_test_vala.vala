@@ -448,6 +448,23 @@
 //  ^^^^^^^^ keyword.operator.word.vala
 //          ^^^^^ variable.other.readwrite.vala
 
+    ((1 + 1) / 4 ?? 3);
+//  ^^^^^^^^^^^^^^^^^^ meta.group.vala
+//  ^ punctuation.section.parens.begin.vala
+//   ^ meta.group.vala punctuation.section.parens.begin.vala
+//   ^^^^^^^ meta.group.vala meta.group.vala
+//    ^ meta.group.vala constant.numeric.integer.vala
+//      ^ meta.group.vala keyword.operator.arithmetic.vala
+//        ^ meta.group.vala constant.numeric.integer.vala
+//         ^ meta.group.vala punctuation.section.parens.end.vala
+//           ^ keyword.operator.arithmetic.vala
+//             ^ constant.numeric.integer.vala
+//               ^^ keyword.operator.vala
+//                  ^ constant.numeric.integer.vala
+//                   ^ punctuation.section.parens.end.vala
+//                    ^ punctuation.terminator.vala
+
+
 /////////////////////////////////////////////////////////////////////
 // MEMBER ACCESS
 /////////////////////////////////////////////////////////////////////
