@@ -697,6 +697,17 @@
 //                           ^^^^^ keyword.control.flow.vala
 //                                  ^^^^^ keyword.control.flow.vala
 
+/** Selection statements. */
+
+    if; else; else if; switch; case; default;
+//  ^^ keyword.control.conditional.vala
+//      ^^^^ keyword.control.conditional.vala
+//            ^^^^ keyword.control.conditional.vala
+//                 ^^ keyword.control.conditional.vala
+//                     ^^^^^^ keyword.control.conditional.vala
+//                             ^^^^ keyword.control.conditional.vala
+//                                   ^^^^^^^ keyword.control.conditional.vala
+
 /** foreach statements. */
 
     foreach (int a in int_array) {/*....*/}
