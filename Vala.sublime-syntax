@@ -417,6 +417,7 @@ contexts:
       scope: constant.numeric.integer.vala
 
   strings:
+    - include: template_strings
     - include: verbatim_strings
     - include: single_line_strings
 
@@ -444,6 +445,41 @@ contexts:
         - meta_scope: string.quoted.triple.vala
         - match: '"""'
           scope: punctuation.definition.string.end.vala
+          pop: true
+
+  template_strings:
+    - match: (@)(")
+      captures:
+        1: storage.modifier.string.vala
+        2: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.double.vala
+        - match: '"'
+          scope: punctuation.definition.string.end.vala
+          pop: true
+        - match: (?=(\$)({{identifier}}))
+          push: string_interpolation_variable
+        - match: (?=(\$)(\())
+          push: string_interpolation_expression
+
+  string_interpolation_variable:
+    - clear_scopes: 1
+    - match: (\$)({{identifier}})
+      captures:
+        1: meta.interpolation.vala punctuation.section.interpolation.begin.vala
+        2: meta.interpolation.vala variable.other.interpolation.vala
+      pop: true
+
+  string_interpolation_expression:
+    - clear_scopes: 1
+    - match: \$\(
+      scope: punctuation.section.interpolation.begin.vala
+      set:
+        - clear_scopes: 1
+        - meta_scope: meta.interpolation.vala
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.interpolation.end.vala
           pop: true
 
 #####################################################################

@@ -383,6 +383,48 @@
     """;
 //  ^^^ string.quoted.triple.vala punctuation.definition.string.end.vala
 
+/** Template strings. */
+    
+    @"template string"
+//  ^^^^^^^^^^^^^^^^^^ string.quoted.double.vala
+//  ^ storage.modifier.string.vala
+//   ^ punctuation.definition.string.begin.vala
+//                   ^ punctuation.definition.string.end.vala
+
+/** Template strings allow embedded variables. */
+
+    @"$a * $c = 7"
+//  ^^ string.quoted.double.vala
+//  ^ storage.modifier.string.vala
+//   ^ punctuation.definition.string.begin.vala
+//    ^^ meta.interpolation.vala
+//    ^ punctuation.section.interpolation.begin.vala
+//     ^ variable.other.interpolation.vala
+//       ^^ string.quoted.double.vala
+//         ^^ meta.interpolation.vala 
+//         ^ punctuation.section.interpolation.begin.vala
+//          ^ variable.other.interpolation.vala
+//            ^^^^ string.quoted.double.vala
+//               ^ punctuation.definition.string.end.vala
+
+/** Template strings allow embedded expressions. */
+
+    @"$a + $(a * b)"
+//  ^^ string.quoted.double.vala
+//  ^ storage.modifier.string.vala
+//   ^ punctuation.definition.string.begin.vala
+//    ^^ meta.interpolation.vala
+//    ^ punctuation.section.interpolation.begin.vala
+//     ^ variable.other.interpolation.vala
+//      ^^^ string.quoted.double.vala
+//         ^^^^^^^^ meta.interpolation.vala
+//         ^^ punctuation.section.interpolation.begin.vala
+//           ^ variable.other.readwrite.vala
+//             ^ keyword.operator.arithmetic.vala
+//               ^ variable.other.readwrite.vala
+//                ^ punctuation.section.interpolation.end.vala
+//                 ^ string.quoted.double.vala punctuation.definition.string.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // OPERATORS
 /////////////////////////////////////////////////////////////////////
