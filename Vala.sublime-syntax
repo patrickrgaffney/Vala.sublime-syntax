@@ -86,6 +86,7 @@ contexts:
   documentation_block_markup:
     - include: documentation_code_block
     - include: documentation_list_block
+    - include: documentation_table_block
 
   documentation_list_block:
     - match: ^\s+(?:\*)[ ]{2,}((\d*\.|#|i\.|I\.|a\.|A\.)|(\*))\s+
@@ -101,6 +102,17 @@ contexts:
         - meta_content_scope: markup.raw.block.vala
         - match: '}}}'
           scope: punctuation.section.braces.end.vala
+          pop: true
+
+  documentation_table_block:
+    - match: ^\s+(?:\*)[ ]+([|]{2})\s+
+      captures:
+        1: punctuation.separator.vala
+      push:
+        - include: documentation_inline_markup
+        - match: '[||]'
+          scope: punctuation.separator.vala
+        - match: $\n?
           pop: true
 
   documentation_bold_text:

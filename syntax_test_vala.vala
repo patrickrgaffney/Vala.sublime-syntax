@@ -186,6 +186,26 @@
 //                                       ^^ punctuation.section.brackets.end.vala
 //                                          ^^ punctuation.definition.comment.end.vala
 
+    /**
+     * Short description
+     *
+     * || ''headline'' || ''headline'' ||
+//     ^^ punctuation.separator.vala
+//        ^^^^^^^^^^^^ markup.bold.vala
+//        ^^ punctuation.definition.bold.begin.vala
+//                  ^^ punctuation.definition.bold.end.vala
+//                     ^^ punctuation.separator.vala
+//                        ^^^^^^^^^^^^ markup.bold.vala
+//                        ^^ punctuation.definition.bold.begin.vala
+//                                  ^^ punctuation.definition.bold.end.vala
+//                                     ^^ punctuation.separator.vala
+     * || one cell || one cell ||
+//     ^^ punctuation.separator.vala
+//                 ^^ punctuation.separator.vala
+//                             ^^ punctuation.separator.vala
+     *
+     */
+
 
 /////////////////////////////////////////////////////////////////////
 // PRIMITIVE TYPES
