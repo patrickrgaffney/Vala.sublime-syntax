@@ -253,6 +253,10 @@ contexts:
     - include: language_constants
     - include: number_literals
     - include: strings
+    - match: ([.])({{identifier}})
+      captures:
+        1: punctuation.accessor.dot.vala
+        2: variable.other.member.vala
     - match: '{{identifier}}'
       scope: variable.other.readwrite.vala
 

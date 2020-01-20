@@ -446,6 +446,27 @@
 
     global::thing;
 //  ^^^^^^^^ keyword.operator.word.vala
+//          ^^^^^ variable.other.readwrite.vala
+
+/////////////////////////////////////////////////////////////////////
+// MEMBER ACCESS
+/////////////////////////////////////////////////////////////////////
+
+    thing.other_thing;
+//  ^^^^^ variable.other.readwrite.vala
+//       ^ punctuation.accessor.dot.vala
+//        ^^^^^^^^^^^ variable.other.member.vala
+
+/** Allows chaining of member access. */
+
+    thing.m1.m2.m3;
+//  ^^^^^ variable.other.readwrite.vala
+//       ^ punctuation.accessor.dot.vala
+//        ^^ variable.other.member.vala
+//          ^ punctuation.accessor.dot.vala
+//           ^^ variable.other.member.vala
+//             ^ punctuation.accessor.dot.vala
+//              ^^ variable.other.member.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
@@ -552,6 +573,8 @@
 //  ^^^^^^ keyword.control.import.vala
 //        ^^^ support.type.vala
 //           ^ punctuation.terminator.vala
+
+/** Allows a list in one statement, including namespace identifiers */
 
     using Gtk, Scratch.Services;
 //  ^^^^^^ keyword.control.import.vala
