@@ -268,6 +268,9 @@ contexts:
 
   operators:
     - include: semicolon
+    # Ownership transfer.
+    - match: ([(])(owned)([)])
+      scope: keyword.operator.word.vala
     - include: parens
     # Global namespace operator
     - match: 'global::'

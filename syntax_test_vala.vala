@@ -464,6 +464,10 @@
 //                   ^ punctuation.section.parens.end.vala
 //                    ^ punctuation.terminator.vala
 
+    (owned) a;
+//  ^^^^^^^ keyword.operator.word.vala
+//          ^ variable.other.readwrite.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // MEMBER ACCESS
