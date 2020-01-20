@@ -360,6 +360,7 @@ contexts:
 
   namespace_members:
     - include: namespace_declarations
+    - include: namespace_constant_declarations
     - include: namespace_field_declarations
 
   namespace_field_declarations:
@@ -370,14 +371,33 @@ contexts:
         2: storage.type.vala
         3: support.type.vala
       push:
+        # Catch the field-name.
         - match: '{{identifier}}'
           scope: variable.other.readwrite.vala
+        # Set up rvalue to pop on terminator.
         - match: =
           scope: keyword.operator.assignment.vala
           set: rvalue_pop_on_terminator
         - match: \;
           scope: punctuation.terminator.vala
           pop: true
+
+  namespace_constant_declarations:
+    # constant-declaration: [ access-modifier ] const qualified-type-name constant-name = expression ;
+    - match: (?:\b({{access_modifier}})\b\s+)?\b(const)\b\s+(?:({{builtin_type}})|({{identifier}}))\b
+      captures:
+        1: storage.modifier.vala
+        2: storage.modifier.vala
+        3: storage.type.vala
+        4: support.type.vala
+      push:
+        # Catch the field-name.
+        - match: '{{identifier}}'
+          scope: variable.other.readwrite.vala
+        # Set up rvalue to pop on terminator.
+        - match: =
+          scope: keyword.operator.assignment.vala
+          set: rvalue_pop_on_terminator
 
   rvalue_pop_on_terminator:
     - match: \;

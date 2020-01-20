@@ -458,9 +458,6 @@
 //            ^^^ entity.name.namespace.vala
 //  ^^^^^^^^^^^^^^ meta.namespace.vala
 //                ^ punctuation.section.block.begin.vala
-//                  ^^ punctuation.definition.comment.begin.vala
-//                  ^^^^^^^ comment.block.vala
-//                       ^^ punctuation.definition.comment.end.vala
 //                          ^ punctuation.section.block.end.vala
 //                ^^^^^^^^^^^ meta.namespace.vala meta.block.vala
 
@@ -476,9 +473,6 @@
 //                ^^^ entity.name.namespace.vala
 //      ^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala meta.namespace.vala
 //                    ^ punctuation.section.block.begin.vala
-//                      ^^ punctuation.definition.comment.begin.vala
-//                      ^^^^^^^ comment.block.vala
-//                           ^^ punctuation.definition.comment.end.vala
 //                              ^ punctuation.section.block.end.vala
 //                    ^^^^^^^^^^^ meta.namespace.vala meta.block.vala meta.namespace.vala meta.block.vala
     }
@@ -494,9 +488,6 @@
 //                ^^^ entity.name.namespace.vala 
 //  ^^^^^^^^^^^^^^^^^^ meta.namespace.vala
 //                    ^ punctuation.section.block.begin.vala
-//                      ^^ punctuation.definition.comment.begin.vala
-//                           ^^ punctuation.definition.comment.end.vala
-//                              ^ punctuation.section.block.end.vala
 //                    ^^^^^^^^^^^ meta.namespace.vala meta.block.vala 
 
 /** Allows field declarations */
@@ -508,23 +499,26 @@
 //               ^ keyword.operator.assignment.vala
 //                 ^^^^^^^^ string.quoted.double.vala
 //                         ^ punctuation.terminator.vala
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
-        public int ns_int = 4;
+
+        my_string a = "g";
+//      ^^^^^^^^^ support.type.vala
+//                ^ variable.other.readwrite.vala
+//                  ^ keyword.operator.assignment.vala
+//                    ^^^ string.quoted.double.vala
+//                       ^ punctuation.terminator.vala
+
+        public int ns_int;
 //      ^^^^^^ storage.modifier.vala
 //             ^^^ storage.type.vala
 //                 ^^^^^^ variable.other.readwrite.vala
-//                        ^ keyword.operator.assignment.vala
-//                          ^ constant.numeric.integer.vala
-//                           ^ punctuation.terminator.vala
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
-        private char c = "c";
+//                       ^ punctuation.terminator.vala
+
+        private char c;
 //      ^^^^^^^ storage.modifier.vala
 //              ^^^^ storage.type.vala
 //                   ^ variable.other.readwrite.vala
-//                     ^ keyword.operator.assignment.vala
-//                       ^^^string.quoted.double.vala
-//                          ^ punctuation.terminator.vala
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+//                    ^ punctuation.terminator.vala
+
         string s2 = global::other_string;
 //      ^^^^^^ storage.type.vala
 //             ^^ variable.other.readwrite.vala
@@ -532,5 +526,20 @@
 //                  ^^^^^^^^ keyword.operator.word.vala
 //                          ^^^^^^^^^^^^ variable.other.readwrite.vala
 //                                      ^ punctuation.terminator.vala
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.namespace.vala meta.block.vala
+        const string s = 3;
+//      ^^^^^ storage.modifier.vala
+//            ^^^^^^ storage.type.vala
+//                   ^ variable.other.readwrite.vala
+//                     ^ keyword.operator.assignment.vala
+//                       ^ constant.numeric.integer.vala
+//                        ^ punctuation.terminator.vala
+
+        public const my_string s = 3;
+//      ^^^^^^ storage.modifier.vala
+//             ^^^^^ storage.modifier.vala
+//                   ^^^^^^^^^ support.type.vala
+//                             ^ variable.other.readwrite.vala
+//                               ^ keyword.operator.assignment.vala
+//                                 ^ constant.numeric.integer.vala
+//                                  ^ punctuation.terminator.vala
     }
