@@ -485,6 +485,13 @@
 //             ^ punctuation.accessor.dot.vala
 //              ^^ variable.other.member.vala
 
+/** Allows `this` keyword. */
+
+    this.other_thing;
+//  ^^^^ variable.language.vala
+//      ^ punctuation.accessor.dot.vala
+//       ^^^^^^^^^^^ variable.other.member.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////

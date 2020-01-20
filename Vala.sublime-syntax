@@ -253,6 +253,8 @@ contexts:
     - include: language_constants
     - include: number_literals
     - include: strings
+    - match: \bthis\b
+      scope: variable.language.vala
     - match: ([.])({{identifier}})
       captures:
         1: punctuation.accessor.dot.vala
