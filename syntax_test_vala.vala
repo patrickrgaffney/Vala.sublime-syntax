@@ -541,12 +541,19 @@
 
 /** Access via element indicies. */
 
-    thing[2];
+    thing[2]; thing[1:2];
 //  ^^^^^ variable.other.readwrite.vala
 //       ^^^ meta.brackets.vala
 //       ^ punctuation.section.brackets.begin.vala
 //        ^ constant.numeric.integer.vala
 //         ^ punctuation.section.brackets.end.vala
+//            ^^^^^ variable.other.readwrite.vala
+//                 ^^^^^ meta.brackets.vala
+//                 ^ punctuation.section.brackets.begin.vala
+//                  ^ constant.numeric.integer.vala
+//                   ^ keyword.operator.vala
+//                    ^ constant.numeric.integer.vala
+//                     ^ punctuation.section.brackets.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
