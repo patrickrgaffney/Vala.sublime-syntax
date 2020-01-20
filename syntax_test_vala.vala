@@ -539,6 +539,15 @@
 //          ^^ punctuation.accessor.arrow.vala
 //            ^^^^^^ variable.other.member.vala
 
+/** Access via element indicies. */
+
+    thing[2];
+//  ^^^^^ variable.other.readwrite.vala
+//       ^^^ meta.brackets.vala
+//       ^ punctuation.section.brackets.begin.vala
+//        ^ constant.numeric.integer.vala
+//         ^ punctuation.section.brackets.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
