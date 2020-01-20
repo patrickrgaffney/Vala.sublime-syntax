@@ -483,6 +483,15 @@
 //                 ^ punctuation.section.brackets.end.vala
 //                  ^ punctuation.section.brackets.end.vala
 
+    sizeof (int); typeof(Gtk.Something);
+//  ^^^^^^ keyword.operator.word.vala
+//         ^ punctuation.section.group.begin.vala
+//          ^^^ storage.type.vala
+//             ^ punctuation.section.group.end.vala
+//                ^^^^^^ keyword.operator.word.vala
+//                      ^ punctuation.section.group.begin.vala
+//                       ^^^^^^^^^^^^^ support.type.vala
+//                                    ^ punctuation.section.group.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // MEMBER ACCESS

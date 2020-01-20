@@ -250,8 +250,20 @@ contexts:
         1: storage.type.vala
         2: entity.name.type.vala
 
+#####################################################################
+# Keywords
+#####################################################################
+
   keywords:
     - include: type_keywords
+
+  type_keywords:
+    - match: '\b({{builtin_type}})\b'
+      scope: storage.type.vala
+
+#####################################################################
+# Expressions
+#####################################################################
 
   expressions:
     - include: pointer_member_expression
@@ -291,6 +303,7 @@ contexts:
       scope: keyword.operator.word.vala
     - include: parens
     - include: brackets
+    - include: sizeof_typeof_operators
     # Global namespace operator
     - match: 'global::'
       scope: keyword.operator.word.vala
@@ -343,9 +356,19 @@ contexts:
           scope: punctuation.section.brackets.end.vala
           pop: true
 
-  type_keywords:
-    - match: '\b({{builtin_type}})\b'
-      scope: storage.type.vala
+  sizeof_typeof_operators:
+    - match: \b(sizeof|typeof)\b\s*(\()
+      captures:
+        1: keyword.operator.word.vala
+        2: punctuation.section.group.begin.vala
+      push:
+        - match: \)
+          scope: punctuation.section.group.end.vala
+          pop: true
+        - include: type_keywords
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+
 
   language_constants:
     - match: \b(true|false|null)\b
@@ -394,6 +417,10 @@ contexts:
         - match: '"""'
           scope: punctuation.definition.string.end.vala
           pop: true
+
+#####################################################################
+# Namespaces
+#####################################################################
 
   namespace_declarations:
     - match: '\b(namespace)\b\s+({{identifier}})'
