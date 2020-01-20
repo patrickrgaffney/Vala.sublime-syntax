@@ -543,3 +543,19 @@
 //                                                 ^ constant.numeric.integer.vala
 //                                                  ^ punctuation.terminator.vala
     }
+
+/////////////////////////////////////////////////////////////////////
+// USING STATEMENT
+/////////////////////////////////////////////////////////////////////
+
+    using Gtk;
+//  ^^^^^^ keyword.control.import.vala
+//        ^^^ support.type.vala
+//           ^ punctuation.terminator.vala
+
+    using Gtk, Scratch.Services;
+//  ^^^^^^ keyword.control.import.vala
+//        ^^^ support.type.vala
+//           ^ punctuation.separator.vala
+//             ^^^^^^^^^^^^^^^^ support.type.vala
+//                             ^ punctuation.terminator.vala

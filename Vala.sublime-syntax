@@ -32,6 +32,7 @@ contexts:
     - include: comments
 
   main:
+    - include: using_statement
     - include: namespace_declarations
     - include: keywords
     - include: expressions
@@ -404,7 +405,21 @@ contexts:
           scope: keyword.operator.assignment.vala
           set: rvalue_pop_on_terminator
 
+  using_statement:
+    # using namespace-list ;
+    - match: \busing\b\s+
+      scope: keyword.control.import.vala
+      push:
+        - match: \,
+          scope: punctuation.separator.vala
+        - match: '{{namespace_identifier}}'
+          scope: support.type.vala
+        - match: \;
+          scope: punctuation.terminator.vala
+          pop: true
+
   rvalue_pop_on_terminator:
+    # Match an rvalue, then pop at the next semicolon.
     - match: \;
       scope: punctuation.terminator.vala
       pop: true
