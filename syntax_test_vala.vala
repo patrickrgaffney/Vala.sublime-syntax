@@ -688,12 +688,52 @@
 // STATEMENTS
 /////////////////////////////////////////////////////////////////////
 
+/** Jump / flow statements. */
+
     break; continue; return; throw; yield;
 //  ^^^^^ keyword.control.flow.vala
 //         ^^^^^^^^ keyword.control.flow.vala
 //                   ^^^^^^ keyword.control.flow.vala
 //                           ^^^^^ keyword.control.flow.vala
 //                                  ^^^^^ keyword.control.flow.vala
+
+/** foreach statements. */
+
+    foreach (int a in int_array) {/*....*/}
+//  ^^^^^^^ keyword.control.loop.vala
+//          ^ punctuation.section.group.begin.vala
+//           ^^^ storage.type.vala
+//               ^ variable.other.readwrite.vala
+//                 ^^ keyword.operator.word.vala
+//                    ^^^^^^^^^ variable.other.readwrite.vala
+//                             ^ punctuation.section.group.end.vala
+
+/** User-type foreach loop variables. */
+
+    foreach (Json.Node item in obj.array) {/*...*/}
+//  ^^^^^^^ keyword.control.loop.vala
+//          ^ punctuation.section.group.begin.vala
+//           ^^^^^^^^^ support.type.vala
+//                     ^^^^ variable.other.readwrite.vala
+//                          ^^ keyword.operator.word.vala
+//                             ^^^ variable.other.readwrite.vala
+//                                ^ punctuation.accessor.dot.vala
+//                                 ^^^^^ variable.other.member.vala
+//                                      ^ punctuation.section.group.end.vala
+
+/** Ownership modifiers in forreach loops. */
+
+    foreach(unowned string name in obj.members){/*...*/}
+//  ^^^^^^^ keyword.control.loop.vala
+//         ^ punctuation.section.group.begin.vala
+//          ^^^^^^^ storage.modifier.vala
+//                  ^^^^^^ storage.type.vala
+//                         ^^^^ variable.other.readwrite.vala
+//                              ^^ keyword.operator.word.vala
+//                                 ^^^ variable.other.readwrite.vala
+//                                    ^ punctuation.accessor.dot.vala
+//                                     ^^^^^^^ variable.other.member.vala
+//                                            ^ punctuation.section.group.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
