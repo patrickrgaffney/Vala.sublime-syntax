@@ -707,6 +707,9 @@
 //                 ^^ keyword.operator.word.vala
 //                    ^^^^^^^^^ variable.other.readwrite.vala
 //                             ^ punctuation.section.group.end.vala
+//                               ^^^^^^^^^^ meta.block.vala
+//                               ^ punctuation.section.block.begin.vala
+//                                        ^ punctuation.section.block.end.vala
 
 /** User-type foreach loop variables. */
 
@@ -720,6 +723,9 @@
 //                                ^ punctuation.accessor.dot.vala
 //                                 ^^^^^ variable.other.member.vala
 //                                      ^ punctuation.section.group.end.vala
+//                                        ^^^^^^^^^ meta.block.vala
+//                                        ^ punctuation.section.block.begin.vala
+//                                                ^ punctuation.section.block.end.vala
 
 /** Ownership modifiers in forreach loops. */
 
@@ -734,6 +740,22 @@
 //                                    ^ punctuation.accessor.dot.vala
 //                                     ^^^^^^^ variable.other.member.vala
 //                                            ^ punctuation.section.group.end.vala
+//                                             ^^^^^^^^^ meta.block.vala
+//                                             ^ punctuation.section.block.begin.vala
+//                                                     ^ punctuation.section.block.end.vala
+
+/** Variable definitions. */
+
+    float percentile = 1.75; const double MU_BOHR = 927;
+//  ^^^^^ storage.type.vala
+//        ^^^^^^^^^^ variable.other.readwrite.vala
+//                   ^ keyword.operator.assignment.vala
+//                     ^^^^ constant.numeric.float.vala
+//                           ^^^^^ storage.modifier.vala
+//                                 ^^^^^^ storage.type.vala
+//                                        ^^^^^^^ variable.other.readwrite.vala
+//                                                ^ keyword.operator.assignment.vala
+//                                                  ^^^ constant.numeric.integer.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES

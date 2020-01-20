@@ -28,7 +28,7 @@ variables:
   access_modifier: public|private
   func_param_direction: out|ref
   jump_statement_keywords: break|continue|return|throw|yield
-  ownership_keywords: unowned|owned
+  ownership_modifiers: unowned|owned
 
   # Lookahead for a paren group followed by an arrow operator.
   lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
@@ -43,6 +43,18 @@ contexts:
     - include: keywords
     - include: statements
     - include: expressions
+    - include: blocks
+
+  blocks:
+    # Catch-all for blocks that weren't caught in another context.
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      push:
+        - meta_scope: meta.block.vala
+        - include: block_body
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
 
 #####################################################################
 # Comments
@@ -263,9 +275,24 @@ contexts:
 
   keywords:
     - include: type_keywords
+    - include: const_keyword
+    - include: ownership_modifiers
+    - include: var_keyword
 
   type_keywords:
     - match: '\b({{builtin_type}})\b'
+      scope: storage.type.vala
+
+  const_keyword:
+    - match: \bconst\b
+      scope: storage.modifier.vala
+
+  ownership_keywords:
+    - match: \b({{ownership_modifiers}})\b
+      scope: storage.modifier.vala
+
+  var_keyword:
+    - match: \bvar\b
       scope: storage.type.vala
 
 #####################################################################
@@ -537,6 +564,7 @@ contexts:
     - include: foreach_statement
 
   block_body:
+    - include: keywords
     - include: statements
     - include: expressions
 
@@ -551,12 +579,12 @@ contexts:
         2: punctuation.section.group.begin.vala
       push:
         # Consume optional ownership modifier on the loop variable.
-        - match: '(?:\b({{ownership_keywords}})\b\s+)?\b({{builtin_type}})\b'
+        - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
           captures:
             1: storage.modifier.vala
             2: storage.type.vala
           set: foreach_group_expression
-        - match: '(?:\b({{ownership_keywords}})\b\s+)?({{namespace_identifier}})'
+        - match: '(?:\b({{ownership_modifiers}})\b\s+)?({{namespace_identifier}})'
           captures:
             1: storage.modifier.vala
             2: support.type.vala
