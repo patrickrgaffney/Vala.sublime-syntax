@@ -521,12 +521,12 @@ contexts:
     - match: \{
       scope: punctuation.section.braces.begin.vala
       set:
-        # TODO: only statements and expressions
         - meta_scope: meta.function.vala
         - match: \}
           scope: punctuation.section.braces.end.vala
           pop: true
-        - include: main
+        - include: statements
+        - include: expressions
 
 #####################################################################
 # Statements
