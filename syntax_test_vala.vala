@@ -495,6 +495,14 @@
 //                       ^^^^^^^^^^^^^ support.type.vala
 //                                    ^ punctuation.section.group.end.vala
 
+    thing is int; other_thing as Gtk.Thing;
+//  ^^^^^ variable.other.readwrite.vala
+//        ^^ keyword.operator.word.vala
+//           ^^^ storage.type.vala
+//                ^^^^^^^^^^^ variable.other.readwrite.vala
+//                            ^^ keyword.operator.word.vala
+//                               ^^^^^^^^^ support.type.vala
+
 /////////////////////////////////////////////////////////////////////
 // LAMBDAS
 /////////////////////////////////////////////////////////////////////

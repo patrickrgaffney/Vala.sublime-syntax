@@ -308,6 +308,7 @@ contexts:
     - include: parens
     - include: brackets
     - include: sizeof_typeof_operators
+    - include: as_is_operators
     - match: 'global::'
       scope: keyword.operator.word.vala
     - match: \bdelete\b
@@ -365,6 +366,19 @@ contexts:
         - include: type_keywords
         - match: \b({{namespace_identifier}})\b
           scope: support.type.vala
+
+  as_is_operators:
+    - match: \b(as|is)\b\s*
+      captures:
+        1: keyword.operator.word.vala
+      push:
+        - match: '\b({{builtin_type}})\b'
+          scope: storage.type.vala
+          pop: true
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+          pop: true
+        - include: else-pop
 
 #####################################################################
 # Constants & Literals
@@ -558,3 +572,9 @@ contexts:
       scope: punctuation.terminator.vala
       pop: true
     - include: expressions
+
+  else-pop:
+    # Used as a fallback to pop out of a context
+    # when the users syntax is incorrect.
+    - match: (?=\S)
+      pop: true
