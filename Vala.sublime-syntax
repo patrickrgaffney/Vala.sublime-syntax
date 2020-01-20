@@ -13,6 +13,9 @@ variables:
   # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
   identifier: \b[[:alpha:]_](?:[[:alnum:]_])*\b
 
+  # A fully qualified identifier (possibly including namespace).
+  namespace_identifier: (?:{{identifier}})(?:\.(?:{{identifier}}))*
+
   boolean_type_name: bool
   integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
   float_type_name: float|double
@@ -29,9 +32,9 @@ contexts:
     - include: comments
 
   main:
+    - include: namespace_declarations
     - include: keywords
     - include: expressions
-    - include: namespace_declarations
 
   comments:
     - include: line_comments
@@ -249,6 +252,8 @@ contexts:
     - include: language_constants
     - include: number_literals
     - include: strings
+    - match: '{{identifier}}'
+      scope: variable.other.readwrite.vala
 
   operators:
     - include: semicolon
@@ -360,10 +365,10 @@ contexts:
 
   namespace_members:
     - include: namespace_declarations
-    - include: namespace_constant_declarations
-    - include: namespace_field_declarations
+    - include: constant_declarations
+    - include: field_declarations
 
-  namespace_field_declarations:
+  field_declarations:
     # field-declaration: [ access-modifier ] qualified-type-name field-name [ = expression ] ;
     - match: (?:\b({{access_modifier}})\b\s+)?\b(?:({{builtin_type}})|({{identifier}}))\b
       captures:
@@ -382,9 +387,9 @@ contexts:
           scope: punctuation.terminator.vala
           pop: true
 
-  namespace_constant_declarations:
+  constant_declarations:
     # constant-declaration: [ access-modifier ] const qualified-type-name constant-name = expression ;
-    - match: (?:\b({{access_modifier}})\b\s+)?\b(const)\b\s+(?:({{builtin_type}})|({{identifier}}))\b
+    - match: (?:\b({{access_modifier}})\b\s+)?\b(const)\b\s+(?:({{builtin_type}})|({{namespace_identifier}}))\b
       captures:
         1: storage.modifier.vala
         2: storage.modifier.vala
@@ -404,5 +409,3 @@ contexts:
       scope: punctuation.terminator.vala
       pop: true
     - include: expressions
-    - match: '{{identifier}}'
-      scope: variable.other.readwrite.vala

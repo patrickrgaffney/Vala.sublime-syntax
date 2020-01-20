@@ -534,12 +534,12 @@
 //                       ^ constant.numeric.integer.vala
 //                        ^ punctuation.terminator.vala
 
-        public const my_string s = 3;
+        public const Scratch.Widgets.HeaderBar s = 3;
 //      ^^^^^^ storage.modifier.vala
 //             ^^^^^ storage.modifier.vala
-//                   ^^^^^^^^^ support.type.vala
-//                             ^ variable.other.readwrite.vala
-//                               ^ keyword.operator.assignment.vala
-//                                 ^ constant.numeric.integer.vala
-//                                  ^ punctuation.terminator.vala
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^^ support.type.vala
+//                                             ^ variable.other.readwrite.vala
+//                                               ^ keyword.operator.assignment.vala
+//                                                 ^ constant.numeric.integer.vala
+//                                                  ^ punctuation.terminator.vala
     }
