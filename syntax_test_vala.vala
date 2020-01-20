@@ -744,6 +744,20 @@
 //                                             ^ punctuation.section.block.begin.vala
 //                                                     ^ punctuation.section.block.end.vala
 
+/** Type inference in foreach initializer. */
+
+    foreach (var init_expr in initializer) {/*...*/}
+//  ^^^^^^^ keyword.control.loop.vala
+//          ^ punctuation.section.group.begin.vala
+//           ^^^ storage.type.vala
+//               ^^^^^^^^^ variable.other.readwrite.vala
+//                         ^^ keyword.operator.word.vala
+//                            ^^^^^^^^^^^ variable.other.readwrite.vala
+//                                       ^ punctuation.section.group.end.vala
+//                                         ^^^^^^^^^ meta.block.vala
+//                                         ^ punctuation.section.block.begin.vala
+//                                                 ^ punctuation.section.block.end.vala
+
 /** Variable definitions. */
 
     float percentile = 1.75; const double MU_BOHR = 927;

@@ -579,6 +579,9 @@ contexts:
         2: punctuation.section.group.begin.vala
       push:
         # Consume optional ownership modifier on the loop variable.
+        - match: \bvar\b
+          scope: storage.type.vala
+          set: foreach_group_expression
         - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
           captures:
             1: storage.modifier.vala
