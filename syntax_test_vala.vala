@@ -685,6 +685,17 @@
 //                     ^ punctuation.section.brackets.end.vala
 
 /////////////////////////////////////////////////////////////////////
+// STATEMENTS
+/////////////////////////////////////////////////////////////////////
+
+    break; continue; return; throw; yield;
+//  ^^^^^ keyword.control.flow.vala
+//         ^^^^^^^^ keyword.control.flow.vala
+//                   ^^^^^^ keyword.control.flow.vala
+//                           ^^^^^ keyword.control.flow.vala
+//                                  ^^^^^ keyword.control.flow.vala
+
+/////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
 

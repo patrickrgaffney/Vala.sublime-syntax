@@ -27,6 +27,7 @@ variables:
 
   access_modifier: public|private
   func_param_direction: out|ref
+  jump_statement_keywords: break|continue|return|throw|yield
 
   # Lookahead for a paren group followed by an arrow operator.
   lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
@@ -39,6 +40,7 @@ contexts:
     - include: using_statement
     - include: namespace_declarations
     - include: keywords
+    - include: statements
     - include: expressions
 
 #####################################################################
@@ -525,6 +527,17 @@ contexts:
           scope: punctuation.section.braces.end.vala
           pop: true
         - include: main
+
+#####################################################################
+# Statements
+#####################################################################
+
+  statements:
+    - include: jump_statements
+
+  jump_statements:
+    - match: \b({{jump_statement_keywords}})\b
+      scope: keyword.control.flow.vala
 
 #####################################################################
 # Namespaces
