@@ -37,6 +37,10 @@ contexts:
     - include: keywords
     - include: expressions
 
+#####################################################################
+# Comments
+#####################################################################
+
   comments:
     - include: line_comments
     - include: doc_comments
@@ -51,11 +55,11 @@ contexts:
           pop: true
 
   block_comments:
-    - match: /\*
+    - match: /[*]
       scope: punctuation.definition.comment.begin.vala
       push:
         - meta_scope: comment.block.vala
-        - match: \*/
+        - match: '[*]/'
           scope: punctuation.definition.comment.end.vala
           pop: true
 
@@ -67,7 +71,7 @@ contexts:
   documentation:
     - meta_include_prototype: false
     - meta_content_scope: comment.block.documentation.vala
-    - match: \*/
+    - match: '[*]/'
       scope: comment.block.documentation.vala punctuation.definition.comment.end.vala
       pop: true
     - include: documentation_block_markup
@@ -75,7 +79,7 @@ contexts:
 
   documentation_inline_markup:
     # Force a newline.
-    - match: \<\<BR\>\>
+    - match: <<BR>>
       scope: constant.character.escape.vala
     - include: documentation_bold_text
     - include: documentation_italic_text
@@ -137,42 +141,43 @@ contexts:
           pop: true
 
   documentation_bold_text:
-    - match: \'\'
+    - match: "''"
       scope: punctuation.definition.bold.begin.vala
       push:
         - meta_scope: markup.bold.vala
-        - match: \'\'
+        - match: "''"
           scope: punctuation.definition.bold.end.vala
           pop: true
         - include: documentation_inline_markup
 
   documentation_italic_text:
-    # Force a non-WS character for testing purposes.
-    - match: \/\/(?!\s)
+    # Force an immediate non-WS character to avoid mismatching
+    # with single-line comments.
+    - match: //(?!\s)
       scope: punctuation.definition.italic.begin.vala
       push:
         - meta_scope: markup.italic.vala
-        - match: \/\/
+        - match: //
           scope: punctuation.definition.italic.end.vala
           pop: true
         - include: documentation_inline_markup
 
   documentation_underline_text:
-    - match: \_\_
+    - match: __
       scope: punctuation.definition.underline.begin.vala
       push:
         - meta_scope: markup.underline.vala
-        - match: \_\_
+        - match: __
           scope: punctuation.definition.underline.end.vala
           pop: true
         - include: documentation_inline_markup
 
   documentation_blockquote_text:
-    - match: \`\`
+    - match: '``'
       scope: punctuation.definition.blockquote.begin.vala
       push:
         - meta_scope: markup.quote.vala
-        - match: \`\`
+        - match: '``'
           scope: punctuation.definition.blockquote.end.vala
           pop: true
         - include: documentation_inline_markup
