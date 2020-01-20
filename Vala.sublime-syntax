@@ -307,6 +307,9 @@ contexts:
     # Global namespace operator
     - match: 'global::'
       scope: keyword.operator.word.vala
+    # Delete operator for pointers and arrays.
+    - match: \bdelete\b
+      scope: keyword.operator.word.vala
     # Assignment operators
     - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
       scope: keyword.operator.assignment.vala

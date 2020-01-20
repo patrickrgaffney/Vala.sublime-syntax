@@ -464,9 +464,11 @@
 //                   ^ punctuation.section.parens.end.vala
 //                    ^ punctuation.terminator.vala
 
-    (owned) a;
+    (owned) a; delete a;
 //  ^^^^^^^ keyword.operator.word.vala
 //          ^ variable.other.readwrite.vala
+//             ^^^^^^ keyword.operator.word.vala
+//                    ^ variable.other.readwrite.vala
 
     [ 1, 2, [ 3, 4 ]];
 //  ^^^^^^^^^^^^^^^^^ meta.brackets.vala
