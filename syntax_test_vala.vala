@@ -873,7 +873,7 @@
 // METHODS
 /////////////////////////////////////////////////////////////////////
 
-    int method_name(int arg)
+    int method_name(int arg);
 //  ^^^ storage.type.vala
 //      ^^^^^^^^^^^ meta.function.vala entity.name.function.vala
 //                 ^ punctuation.section.parens.begin.vala
@@ -881,6 +881,33 @@
 //                  ^^^ storage.type.vala
 //                      ^^^ variable.parameter.vala
 //                         ^ punctuation.section.parens.end.vala
+
+/** Handles access modifiers. */
+
+    private void func();
+//  ^^^^^^^ storage.modifier.vala
+//          ^^^^ storage.type.vala
+//               ^^^^ meta.function.vala entity.name.function.vala
+//                   ^ punctuation.section.parens.begin.vala
+//                    ^ punctuation.section.parens.end.vala
+
+/** Handles nullable checks on return type. */
+
+    public string? m();
+//  ^^^^^^ storage.modifier.vala
+//         ^^^^^^ storage.type.vala
+//               ^ keyword.operator.vala
+//                 ^ meta.function.vala entity.name.function.vala
+//                  ^ punctuation.section.parens.begin.vala
+//                   ^ punctuation.section.parens.end.vala
+
+/** Handles fully-qualified names for methods. */
+
+    void Gtk.draw_shape();
+//  ^^^^ storage.type.vala
+//       ^^^^^^^^^^^^^^ meta.function.vala entity.name.function.vala
+//                     ^ punctuation.section.parens.begin.vala
+//                      ^ punctuation.section.parens.end.vala
 
 
 /////////////////////////////////////////////////////////////////////
