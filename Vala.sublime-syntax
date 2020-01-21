@@ -674,12 +674,12 @@ contexts:
   # can still try for the type. This is the first parameter
   # check in the stack, thus it also checks for the ending ")".
   method_parameter_direction:
+    - meta_content_scope: meta.function.parameters.vala
     - match: \)
       scope: punctuation.section.parens.end.vala
       pop: true
     - match: \b({{func_param_direction}})\b\s*
       captures:
-        0: meta.function.parameters.vala
         1: keyword.control.vala
       set: method_parameter_type
     - match: (?=\S)
@@ -689,33 +689,30 @@ contexts:
   # "..." operator. Otherwise it will look for a built-in
   # type and fallback to a user type.
   method_parameter_type:
+    - meta_content_scope: meta.function.parameters.vala
     - match: \b({{builtin_type}})\b(\?)?\s*
       captures:
-        0: meta.function.parameters.vala
         1: storage.type.vala
         2: keyword.operator.vala
       set: method_parameter_name
     - match: \b({{namespace_identifier}})\b(\?)?\s*
       captures:
-        0: meta.function.parameters.vala
         1: support.type.vala
         2: keyword.operator.vala
       set: method_parameter_name
     - match: (\.\.\.)\s*
       captures:
-        0: meta.function.parameters.vala
         1: keyword.operator.vala
       set: method_parameter_name
     - include: else-pop
 
   method_parameter_name:
+    - meta_content_scope: meta.function.parameters.vala
     - match: \b({{namespace_identifier}})\b\s*
       captures:
-        0: meta.function.parameters.vala
         1: variable.parameter.vala
     - match: (\,)\s*
       captures:
-        0: meta.function.parameters.vala
         1: punctuation.separator.vala
       set: method_parameter_direction
     - match: \)
@@ -723,7 +720,6 @@ contexts:
       pop: true
     - match: (=)\s*
       captures:
-        0: meta.function.parameters.vala
         1: keyword.operator.assignment.vala
       set: method_parameter_default_value
     - include: else-pop
@@ -732,7 +728,8 @@ contexts:
     - meta_content_scope: meta.function.parameters.vala
     - include: expressions
     - match: (\,)\s*
-      scope: punctuation.separator.vala
+      captures:
+        1: punctuation.separator.vala
       set: method_parameter_direction
     - match: \)
       scope: punctuation.section.parens.end.vala
