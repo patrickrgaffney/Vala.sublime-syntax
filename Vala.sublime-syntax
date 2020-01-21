@@ -737,7 +737,7 @@ contexts:
         - match: '{{identifier}}'
           scope: entity.name.namespace.vala
         - match: \.
-          scope: punctuation.separator.vala
+          scope: punctuation.accessor.dot.vala
         - match: \{
           scope: punctuation.section.block.begin.vala
           set:

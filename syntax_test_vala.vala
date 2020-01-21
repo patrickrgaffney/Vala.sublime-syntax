@@ -1013,7 +1013,7 @@
     namespace Ns1.Ns2 { /* c */ }
 //  ^^^^^^^^^ storage.type.vala
 //            ^^^ entity.name.namespace.vala
-//               ^ punctuation.separator.vala
+//               ^ punctuation.accessor.dot.vala
 //                ^^^ entity.name.namespace.vala 
 //  ^^^^^^^^^^^^^^^^^^ meta.namespace.vala
 //                    ^ punctuation.section.block.begin.vala
