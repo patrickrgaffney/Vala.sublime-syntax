@@ -20,7 +20,8 @@ variables:
   integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
   float_type_name: float|double
   reference_type_name: string
-  builtin_type: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}'
+  void_type_name: void
+  builtin_type: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}|{{void_type_name}}'
 
   # Lifted from the characters GLib's string.escape() method will handle.
   string_escape: \\[bfnrtv"]
