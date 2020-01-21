@@ -909,6 +909,22 @@
 //                     ^ punctuation.section.parens.begin.vala
 //                      ^ punctuation.section.parens.end.vala
 
+/** Handles directional parameter qualifiers. */
+
+    void thing(out int i, ref int j);
+//  ^^^^ storage.type.vala
+//       ^^^^^ meta.function.vala entity.name.function.vala
+//            ^ punctuation.section.parens.begin.vala
+//             ^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.vala
+//             ^^^ keyword.control.vala
+//                 ^^^ storage.type.vala
+//                     ^ variable.parameter.vala
+//                      ^ punctuation.separator.vala
+//                        ^^^ keyword.control.vala
+//                            ^^^ storage.type.vala
+//                                ^ variable.parameter.vala
+//                                 ^ punctuation.section.parens.end.vala
+
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES

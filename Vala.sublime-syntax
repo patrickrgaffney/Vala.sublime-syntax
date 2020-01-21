@@ -660,18 +660,59 @@ contexts:
         4: keyword.operator.vala
         5: meta.function.vala entity.name.function.vala
         6: punctuation.section.parens.begin.vala
-      push:
-        - meta_content_scope: meta.function.parameters.vala
-        - match: \)
-          scope: punctuation.section.parens.end.vala
-          pop: true
-        - include: type_keywords
-        - match: \b({{func_param_direction}})\b
-          scope: keyword.control.vala
-        - match: \,
-          scope: punctuation.separator.vala
-        - match: '{{namespace_identifier}}'
-          scope: variable.parameter.vala
+      push: named_parameter_list
+
+  # Parameter lists are matched in a very specific order in the
+  # stack in order to highlight everything correctly:
+  #
+  # list = [direction] type name [, ...list]
+  named_parameter_list:
+    - match: ''
+      set: method_parameter_direction
+
+  # Parameter direction is optional, if we don't find one, we
+  # can still try for the type. This is the first parameter
+  # check in the stack, thus it also checks for the ending ")".
+  method_parameter_direction:
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      pop: true
+    - match: \b({{func_param_direction}})\b\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: meta.function.parameters.vala keyword.control.vala
+      set: method_parameter_type
+    - match: (?=\S)
+      set: method_parameter_type
+
+  # TODO: allow "?" nullable types
+  method_parameter_type:
+    - match: \b({{builtin_type}})\b\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: storage.type.vala
+      set: method_parameter_name
+    - match: \b({{namespace_identifier}})\b\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: support.type.vala
+      set: method_parameter_name
+    - include: else-pop
+
+  method_parameter_name:
+    - match: \b({{namespace_identifier}})\b\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: variable.parameter.vala
+    - match: (\,)\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: punctuation.separator.vala
+      set: method_parameter_direction
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      pop: true
+    - include: else-pop
 
 #####################################################################
 # Namespaces
