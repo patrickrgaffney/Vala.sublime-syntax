@@ -721,6 +721,22 @@ contexts:
     - match: \)
       scope: punctuation.section.parens.end.vala
       pop: true
+    - match: (=)\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: keyword.operator.assignment.vala
+      set: method_parameter_default_value
+    - include: else-pop
+
+  method_parameter_default_value:
+    - meta_content_scope: meta.function.parameters.vala
+    - include: expressions
+    - match: (\,)\s*
+      scope: punctuation.separator.vala
+      set: method_parameter_direction
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      pop: true
     - include: else-pop
 
 #####################################################################

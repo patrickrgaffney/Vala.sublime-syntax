@@ -976,6 +976,27 @@
 //                                  ^^^ keyword.operator.vala
 //                                     ^ punctuation.section.parens.end.vala
 
+/** Handles default values for parameters. */
+
+    void f(int x, string s = "hello", double z = 0.5);
+//  ^^^^ storage.type.vala
+//       ^ meta.function.vala entity.name.function.vala
+//        ^ punctuation.section.parens.begin.vala
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.vala
+//         ^^^ storage.type.vala
+//             ^ variable.parameter.vala
+//              ^ punctuation.separator.vala
+//                ^^^^^^ storage.type.vala
+//                       ^ variable.parameter.vala
+//                         ^ keyword.operator.assignment.vala
+//                           ^^^^^^^ string.quoted.double.vala
+//                                  ^ punctuation.separator.vala
+//                                    ^^^^^^ storage.type.vala
+//                                           ^ variable.parameter.vala
+//                                             ^ keyword.operator.assignment.vala
+//                                               ^^^ constant.numeric.float.vala
+//                                                  ^ punctuation.section.parens.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
