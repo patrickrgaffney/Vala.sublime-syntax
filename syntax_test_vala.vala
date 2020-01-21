@@ -925,6 +925,43 @@
 //                                ^ variable.parameter.vala
 //                                 ^ punctuation.section.parens.end.vala
 
+/** Handles nullable parameter types. */
+
+    void? thing(ref string? s);
+//  ^^^^ storage.type.vala
+//      ^ keyword.operator.vala
+//        ^^^^^ meta.function.vala entity.name.function.vala
+//             ^ punctuation.section.parens.begin.vala
+//              ^^^^^^^^^^^^^ meta.function.parameters.vala
+//              ^^^ keyword.control.vala
+//                  ^^^^^^ storage.type.vala
+//                        ^ keyword.operator.vala
+//                          ^ variable.parameter.vala
+//                           ^ punctuation.section.parens.end.vala
+
+/** Handles user types for parameters. */
+
+    void f(Gtk.Thing s, int i);
+//  ^^^^ storage.type.vala
+//       ^ meta.function.vala entity.name.function.vala
+//        ^ punctuation.section.parens.begin.vala
+//         ^^^^^^^^^^^^^^^^^^ meta.function.parameters.vala
+//         ^^^^^^^^^ support.type.vala
+//                   ^ variable.parameter.vala
+//                    ^ punctuation.separator.vala
+//                      ^^^ storage.type.vala
+//                          ^ variable.parameter.vala
+//                           ^ punctuation.section.parens.end.vala
+
+/** Handles user return types. */
+
+    public Gtk.Thing? gg();
+//  ^^^^^^ storage.modifier.vala
+//         ^^^^^^^^^ support.type.vala
+//                  ^ keyword.operator.vala
+//                    ^^ meta.function.vala entity.name.function.vala
+//                      ^ punctuation.section.parens.begin.vala
+//                       ^ punctuation.section.parens.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
