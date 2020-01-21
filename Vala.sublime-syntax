@@ -685,6 +685,9 @@ contexts:
     - match: (?=\S)
       set: method_parameter_type
 
+  # Parameter type also matches for the variable-length
+  # "..." operator. Otherwise it will look for a built-in
+  # type and fallback to a user type.
   method_parameter_type:
     - match: \b({{builtin_type}})\b(\?)?\s*
       captures:
@@ -697,6 +700,11 @@ contexts:
         0: meta.function.parameters.vala
         1: support.type.vala
         2: keyword.operator.vala
+      set: method_parameter_name
+    - match: (\.\.\.)\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: keyword.operator.vala
       set: method_parameter_name
     - include: else-pop
 

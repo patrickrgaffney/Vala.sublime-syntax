@@ -963,6 +963,19 @@
 //                      ^ punctuation.section.parens.begin.vala
 //                       ^ punctuation.section.parens.end.vala
 
+/** Handles variable-length arguments. */
+
+    void method_with_varargs(int x, ...);
+//  ^^^^ storage.type.vala
+//       ^^^^^^^^^^^^^^^^^^^ meta.function.vala entity.name.function.vala
+//                          ^ punctuation.section.parens.begin.vala
+//                           ^^^^^^^^^^ meta.function.parameters.vala
+//                           ^^^ storage.type.vala
+//                               ^ variable.parameter.vala
+//                                ^ punctuation.separator.vala
+//                                  ^^^ keyword.operator.vala
+//                                     ^ punctuation.section.parens.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
