@@ -43,6 +43,7 @@ contexts:
   main:
     - include: using_statement
     - include: namespace_declarations
+    - include: method_declarations
     - include: keywords
     - include: statements
     - include: expressions
@@ -628,6 +629,49 @@ contexts:
     - include: expressions
     - match: '{{identifier}}'
       scope: variable.other.readwrite.vala
+
+#####################################################################
+# Methods
+#####################################################################
+
+  method_declarations:
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# consume a built-in type or assume its a user type)
+          \b(?:
+            ({{builtin_type}})|
+            (?# avoid confusion with `new` class/array instantiation)
+            (?!new)
+            ({{namespace_identifier}})
+          )\b
+          (?# allow a "?" on the end of the type for nullable types)
+          (\?)?\s+
+          (?# fully-qualified method name)
+          ({{namespace_identifier}})
+          (?# opening parenthesis)
+          (\()
+        )
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+        3: support.type.vala
+        4: keyword.operator.vala
+        5: meta.function.vala entity.name.function.vala
+        6: punctuation.section.parens.begin.vala
+      push:
+        - meta_content_scope: meta.function.parameters.vala
+        - match: \)
+          scope: punctuation.section.parens.end.vala
+          pop: true
+        - include: type_keywords
+        - match: \b({{func_param_direction}})\b
+          scope: keyword.control.vala
+        - match: \,
+          scope: punctuation.separator.vala
+        - match: '{{namespace_identifier}}'
+          scope: variable.parameter.vala
 
 #####################################################################
 # Namespaces

@@ -870,6 +870,20 @@
 //                                            ^ punctuation.section.block.end.vala
 
 /////////////////////////////////////////////////////////////////////
+// METHODS
+/////////////////////////////////////////////////////////////////////
+
+    int method_name(int arg)
+//  ^^^ storage.type.vala
+//      ^^^^^^^^^^^ meta.function.vala entity.name.function.vala
+//                 ^ punctuation.section.parens.begin.vala
+//                  ^^^^^^^ meta.function.parameters.vala
+//                  ^^^ storage.type.vala
+//                      ^^^ variable.parameter.vala
+//                         ^ punctuation.section.parens.end.vala
+
+
+/////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
 
