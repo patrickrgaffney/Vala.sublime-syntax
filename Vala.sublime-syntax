@@ -574,6 +574,7 @@ contexts:
   statements:
     - include: jump_statements
     - include: foreach_statement
+    - include: for_statement
 
   block_body:
     - include: keywords
@@ -589,21 +590,30 @@ contexts:
       captures:
         1: keyword.control.loop.vala
         2: punctuation.section.group.begin.vala
-      push:
-        # Consume optional ownership modifier on the loop variable.
-        - match: \bvar\b
-          scope: storage.type.vala
-          set: foreach_group_expression
-        - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
-          captures:
-            1: storage.modifier.vala
-            2: storage.type.vala
-          set: foreach_group_expression
-        - match: '(?:\b({{ownership_modifiers}})\b\s+)?({{namespace_identifier}})'
-          captures:
-            1: storage.modifier.vala
-            2: support.type.vala
-          set: foreach_group_expression
+      push: for_statement_inital_type
+
+  for_statement:
+    - match: \b(for)\b\s*(\()
+      captures:
+        1: keyword.control.loop.vala
+        2: punctuation.section.group.begin.vala
+      push: for_statement_inital_type
+
+  for_statement_inital_type:
+    # Consume optional ownership modifier on the loop variable.
+    - match: \bvar\b
+      scope: storage.type.vala
+      set: foreach_group_expression
+    - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+      set: foreach_group_expression
+    - match: '(?:\b({{ownership_modifiers}})\b\s+)?({{namespace_identifier}})'
+      captures:
+        1: storage.modifier.vala
+        2: support.type.vala
+      set: foreach_group_expression
 
   foreach_group_expression:
     # We match the first type in a foreach (type ...) statement

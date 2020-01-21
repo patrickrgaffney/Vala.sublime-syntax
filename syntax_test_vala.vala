@@ -801,6 +801,71 @@
 //                         ^^^^^^^^^^^^^^^^ variable.other.readwrite.vala
 //                                         ^ punctuation.section.parens.end.vala
 
+/** C-Style for loop. */
+
+    for (int i = 0; i <= 255; i++) {/*...*/}
+//  ^^^ keyword.control.loop.vala
+//      ^ punctuation.section.group.begin.vala
+//       ^^^ storage.type.vala
+//           ^ variable.other.readwrite.vala
+//             ^ keyword.operator.assignment.vala
+//               ^ constant.numeric.integer.vala
+//                ^ punctuation.terminator.vala
+//                  ^ variable.other.readwrite.vala
+//                    ^^ keyword.operator.comparison.vala
+//                       ^^^ constant.numeric.integer.vala
+//                          ^ punctuation.terminator.vala
+//                            ^ variable.other.readwrite.vala
+//                             ^^ keyword.operator.arithmetic.vala
+//                               ^ punctuation.section.group.end.vala
+//                                 ^^^^^^^^^ meta.block.vala
+//                                 ^ punctuation.section.block.begin.vala
+//                                         ^ punctuation.section.block.end.vala
+
+/** C-Style for loop with user type. TODO: match method call. */
+
+    for (File pos = file; pos != null; pos = pos.get_parent()) {/***/}
+//  ^^^ keyword.control.loop.vala
+//      ^ punctuation.section.group.begin.vala
+//       ^^^^ support.type.vala
+//            ^^^ variable.other.readwrite.vala
+//                ^ keyword.operator.assignment.vala
+//                  ^^^^ variable.other.readwrite.vala
+//                      ^ punctuation.terminator.vala
+//                        ^^^ variable.other.readwrite.vala
+//                            ^^ keyword.operator.comparison.vala
+//                               ^^^^ constant.language.vala
+//                                   ^ punctuation.terminator.vala
+//                                     ^^^ variable.other.readwrite.vala
+//                                         ^ keyword.operator.assignment.vala
+//                                           ^^^ variable.other.readwrite.vala
+//                                                           ^ punctuation.section.group.end.vala
+//                                                             ^^^^^^^ meta.block.vala
+//                                                             ^ punctuation.section.block.begin.vala
+//                                                                   ^ punctuation.section.block.end.vala
+
+/** Ownership modifiers in for loops. */
+
+    for (owned int i = 0; i < 5; i++) {/*...*/}
+//  ^^^ keyword.control.loop.vala
+//      ^ punctuation.section.group.begin.vala
+//       ^^^^^ storage.modifier.vala
+//             ^^^ storage.type.vala
+//                 ^ variable.other.readwrite.vala
+//                   ^ keyword.operator.assignment.vala
+//                     ^ constant.numeric.integer.vala
+//                      ^ punctuation.terminator.vala
+//                        ^ variable.other.readwrite.vala
+//                          ^ keyword.operator.comparison.vala
+//                            ^ constant.numeric.integer.vala
+//                             ^ punctuation.terminator.vala
+//                               ^ variable.other.readwrite.vala
+//                                ^^ keyword.operator.arithmetic.vala
+//                                  ^ punctuation.section.group.end.vala
+//                                    ^^^^^^^^^ meta.block.vala
+//                                    ^ punctuation.section.block.begin.vala
+//                                            ^ punctuation.section.block.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
