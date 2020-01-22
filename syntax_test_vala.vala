@@ -1073,6 +1073,96 @@
 //                                              ^^ constant.numeric.integer.vala
 //                                                ^ punctuation.section.parens.end.vala
 
+/** Handles "ensures" contract. */
+
+    int f(int x) ensures (x > 0 && x < 10);
+//  ^^^ storage.type.vala
+//      ^ meta.function.vala entity.name.function.vala
+//       ^ punctuation.section.parens.begin.vala
+//        ^^^ meta.function.parameters.vala storage.type.vala
+//            ^ meta.function.parameters.vala variable.parameter.vala
+//             ^ meta.function.parameters.vala punctuation.section.parens.end.vala
+//               ^^^^^^^ keyword.control.conditional.vala
+//                       ^ punctuation.section.parens.begin.vala
+//                        ^ variable.other.readwrite.vala
+//                          ^ keyword.operator.comparison.vala
+//                            ^ constant.numeric.integer.vala
+//                              ^^ keyword.operator.logical.vala
+//                                 ^ variable.other.readwrite.vala
+//                                   ^ keyword.operator.comparison.vala
+//                                     ^^ constant.numeric.integer.vala
+//                                       ^ punctuation.section.parens.end.vala
+
+/** Handles multiple "ensures" contracts. */
+
+    int f(int x) ensures (x > 0) ensures (x < 10);
+//  ^^^ storage.type.vala
+//      ^ meta.function.vala entity.name.function.vala
+//       ^ punctuation.section.parens.begin.vala
+//        ^^^ meta.function.parameters.vala storage.type.vala
+//            ^ meta.function.parameters.vala variable.parameter.vala
+//             ^ meta.function.parameters.vala punctuation.section.parens.end.vala
+//               ^^^^^^^ keyword.control.conditional.vala
+//                       ^ punctuation.section.parens.begin.vala
+//                        ^ variable.other.readwrite.vala
+//                          ^ keyword.operator.comparison.vala
+//                            ^ constant.numeric.integer.vala
+//                             ^ punctuation.section.parens.end.vala
+//                               ^^^^^^^ keyword.control.conditional.vala
+//                                       ^ punctuation.section.parens.begin.vala
+//                                        ^ variable.other.readwrite.vala
+//                                          ^ keyword.operator.comparison.vala
+//                                            ^^ constant.numeric.integer.vala
+//                                              ^ punctuation.section.parens.end.vala
+
+/** Putting it all together, over multiple lines. */
+
+    double method_name(int x, double d, string s = "default")
+//  ^^^^^^ storage.type.vala
+//         ^^^^^^^^^^^ meta.function.vala entity.name.function.vala
+//                    ^ punctuation.section.parens.begin.vala
+//                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.vala
+//                     ^^^ storage.type.vala
+//                         ^ variable.parameter.vala
+//                          ^ punctuation.separator.vala
+//                            ^^^^^^ storage.type.vala
+//                                   ^ variable.parameter.vala
+//                                    ^ punctuation.separator.vala
+//                                      ^^^^^^ storage.type.vala
+//                                             ^ variable.parameter.vala
+//                                               ^ keyword.operator.assignment.vala
+//                                                 ^^^^^^^^^ string.quoted.double.vala
+//                                                          ^ punctuation.section.parens.end.vala
+        throws Gtk.SpecialError
+//      ^^^^^^ keyword.control.exception.vala
+//             ^^^^^^^^^^^^^^^^ support.type.vala
+        requires (x > 0 && x < 10)
+//      ^^^^^^^^ keyword.control.conditional.vala
+//               ^ punctuation.section.parens.begin.vala
+//                ^ variable.other.readwrite.vala
+//                  ^ keyword.operator.comparison.vala
+//                    ^ constant.numeric.integer.vala
+//                      ^^ keyword.operator.logical.vala
+//                         ^ variable.other.readwrite.vala
+//                           ^ keyword.operator.comparison.vala
+//                             ^^ constant.numeric.integer.vala
+//                               ^ punctuation.section.parens.end.vala
+        requires (d >= 0.0)
+//      ^^^^^^^^ keyword.control.conditional.vala
+//               ^ punctuation.section.parens.begin.vala
+//                ^ variable.other.readwrite.vala
+//                  ^^ keyword.operator.comparison.vala
+//                     ^^^ constant.numeric.float.vala
+//                        ^ punctuation.section.parens.end.vala
+        ensures (result >= 0.0);
+//      ^^^^^^^ keyword.control.conditional.vala
+//              ^ punctuation.section.parens.begin.vala
+//               ^^^^^^ variable.other.readwrite.vala
+//                      ^^ keyword.operator.comparison.vala
+//                         ^^^ constant.numeric.float.vala
+//                            ^ punctuation.section.parens.end.vala
+//                             ^ punctuation.terminator.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////

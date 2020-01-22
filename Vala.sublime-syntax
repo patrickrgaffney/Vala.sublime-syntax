@@ -753,19 +753,21 @@ contexts:
     - match: \b({{builtin_type}})\b
       captures:
         1: storage.type.vala
+    - match: (?=\b(requires|ensures)\b)
+      set: method_contracts
     - match: \b({{namespace_identifier}})\b
       captures:
         1: support.type.vala
     - match: \,
       scope: punctuation.separator.vala
-    - match: (?=\b(requires|ensures)\b)
-      set: method_contracts
     - match: (?=(\{|;))
       pop: true
-    - include: else-pop
+    - match: (?=\S)
+      set: method_contracts
 
+  # TODO: match special "result" variable in "ensures" blocks.
   method_contracts:
-    - match: \b(requires)\b\s*(\()
+    - match: \b(requires|ensures)\b\s*(\()
       captures:
         1: keyword.control.conditional.vala
         2: punctuation.section.parens.begin.vala
