@@ -1031,6 +1031,48 @@
 //                            ^ punctuation.separator.vala
 //                              ^^^^^^^^^ support.type.vala
 
+/** Handles "requires" contract. */
+
+    int f(int x) requires (x > 0 && x < 10);
+//  ^^^ storage.type.vala
+//      ^ meta.function.vala entity.name.function.vala
+//       ^ punctuation.section.parens.begin.vala
+//        ^^^ meta.function.parameters.vala storage.type.vala
+//            ^ meta.function.parameters.vala variable.parameter.vala
+//             ^ meta.function.parameters.vala punctuation.section.parens.end.vala
+//               ^^^^^^^^ keyword.control.conditional.vala
+//                        ^ punctuation.section.parens.begin.vala
+//                         ^ variable.other.readwrite.vala
+//                           ^ keyword.operator.comparison.vala
+//                             ^ constant.numeric.integer.vala
+//                               ^^ keyword.operator.logical.vala
+//                                  ^ variable.other.readwrite.vala
+//                                    ^ keyword.operator.comparison.vala
+//                                      ^^ constant.numeric.integer.vala
+//                                        ^ punctuation.section.parens.end.vala
+
+/** Handles multiple "requires" contracts. */
+
+    int f(int x) requires (x > 0) requires (x < 10);
+//  ^^^ storage.type.vala
+//      ^ meta.function.vala entity.name.function.vala
+//       ^ punctuation.section.parens.begin.vala
+//        ^^^ meta.function.parameters.vala storage.type.vala
+//            ^ meta.function.parameters.vala variable.parameter.vala
+//             ^ meta.function.parameters.vala punctuation.section.parens.end.vala
+//               ^^^^^^^^ keyword.control.conditional.vala
+//                        ^ punctuation.section.parens.begin.vala
+//                         ^ variable.other.readwrite.vala
+//                           ^ keyword.operator.comparison.vala
+//                             ^ constant.numeric.integer.vala
+//                              ^ punctuation.section.parens.end.vala
+//                                ^^^^^^^^ keyword.control.conditional.vala
+//                                         ^ punctuation.section.parens.begin.vala
+//                                          ^ variable.other.readwrite.vala
+//                                            ^ keyword.operator.comparison.vala
+//                                              ^^ constant.numeric.integer.vala
+//                                                ^ punctuation.section.parens.end.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////

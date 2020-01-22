@@ -704,7 +704,8 @@ contexts:
       captures:
         1: keyword.operator.vala
       set: method_parameter_name
-    - include: else-pop
+    - match: (?=\S)
+      set: method_throws_keyword
 
   method_parameter_name:
     - meta_content_scope: meta.function.parameters.vala
@@ -717,12 +718,13 @@ contexts:
       set: method_parameter_direction
     - match: \)
       scope: punctuation.section.parens.end.vala
-      pop: true
+      set: method_throws_keyword
     - match: (=)\s*
       captures:
         1: keyword.operator.assignment.vala
       set: method_parameter_default_value
-    - include: else-pop
+    - match: (?=\S)
+      set: method_throws_keyword
 
   method_parameter_default_value:
     - meta_content_scope: meta.function.parameters.vala
@@ -733,8 +735,9 @@ contexts:
       set: method_parameter_direction
     - match: \)
       scope: punctuation.section.parens.end.vala
-      pop: true
-    - include: else-pop
+      set: method_throws_keyword
+    - match: (?=\S)
+      set: method_throws_keyword
 
   method_throws_keyword:
     - match: \b(throws)\b\s+
@@ -742,8 +745,9 @@ contexts:
         1: keyword.control.exception.vala
       set: method_error_list
     - match: (?=(\{|;))
-      pop: true
-    - include: else-pop
+      set: method_contracts
+    - match: (?=\S)
+      set: method_contracts
 
   method_error_list:
     - match: \b({{builtin_type}})\b
@@ -754,7 +758,22 @@ contexts:
         1: support.type.vala
     - match: \,
       scope: punctuation.separator.vala
-    # - match: \b(requires|ensures)\b\s+(\()
+    - match: (?=\b(requires|ensures)\b)
+      set: method_contracts
+    - match: (?=(\{|;))
+      pop: true
+    - include: else-pop
+
+  method_contracts:
+    - match: \b(requires)\b\s*(\()
+      captures:
+        1: keyword.control.conditional.vala
+        2: punctuation.section.parens.begin.vala
+      set:
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.parens.end.vala
+          set: method_contracts
     - match: (?=(\{|;))
       pop: true
     - include: else-pop
