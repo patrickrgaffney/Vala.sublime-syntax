@@ -666,6 +666,10 @@ contexts:
   # stack in order to highlight everything correctly:
   #
   # list = [direction] type name [, ...list]
+  #
+  # After the parameter list has been matched, we attempt to
+  # match the "throws" and contracts portions of the method
+  # declaration.
   named_parameter_list:
     - match: ''
       set: method_parameter_direction
@@ -674,9 +678,7 @@ contexts:
   # can still try for the type. This is the first parameter
   # check in the stack, thus it also checks for the ending ")".
   method_parameter_direction:
-    - match: \)
-      scope: punctuation.section.parens.end.vala
-      set: method_throws_keyword
+    - include: match_parameters_list_close
     - match: \b({{func_param_direction}})\b\s*
       captures:
         0: meta.function.parameters.vala
@@ -707,6 +709,8 @@ contexts:
     - match: (?=\S)
       set: method_throws_keyword
 
+  # Matches the parameter name, the comma, and sets up
+  # the default-value context, if triggered by the "=".
   method_parameter_name:
     - meta_content_scope: meta.function.parameters.vala
     - match: \b({{namespace_identifier}})\b\s*
@@ -716,9 +720,7 @@ contexts:
       captures:
         1: punctuation.separator.vala
       set: method_parameter_direction
-    - match: \)
-      scope: punctuation.section.parens.end.vala
-      set: method_throws_keyword
+    - include: match_parameters_list_close
     - match: (=)\s*
       captures:
         1: keyword.operator.assignment.vala
@@ -726,6 +728,8 @@ contexts:
     - match: (?=\S)
       set: method_throws_keyword
 
+  # Wrapper around the "expressions" context to allow
+  # setting a default value for a parameter.
   method_parameter_default_value:
     - meta_content_scope: meta.function.parameters.vala
     - include: expressions
@@ -733,22 +737,23 @@ contexts:
       captures:
         1: punctuation.separator.vala
       set: method_parameter_direction
-    - match: \)
-      scope: punctuation.section.parens.end.vala
-      set: method_throws_keyword
+    - include: match_parameters_list_close
     - match: (?=\S)
       set: method_throws_keyword
 
+  # Matches the "throws" keyword. If successful, sets the
+  # error list context on the stack, otherwise kicks it to
+  # the method contracts context.
   method_throws_keyword:
     - match: \b(throws)\b\s+
       captures:
         1: keyword.control.exception.vala
       set: method_error_list
-    - match: (?=(\{|;))
-      set: method_contracts
     - match: (?=\S)
       set: method_contracts
 
+  # Matches the "throws" error list CSV. Kicks it to the
+  # method contracts context after it tries to match.
   method_error_list:
     - match: \b({{builtin_type}})\b
       captures:
@@ -779,6 +784,13 @@ contexts:
     - match: (?=(\{|;))
       pop: true
     - include: else-pop
+
+  # Helper context to match the end of the parameters list
+  # and jump to the "throws" keyword context.
+  match_parameters_list_close:
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      set: method_throws_keyword
 
 #####################################################################
 # Namespaces
