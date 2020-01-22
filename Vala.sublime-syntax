@@ -674,12 +674,12 @@ contexts:
   # can still try for the type. This is the first parameter
   # check in the stack, thus it also checks for the ending ")".
   method_parameter_direction:
-    - meta_content_scope: meta.function.parameters.vala
     - match: \)
       scope: punctuation.section.parens.end.vala
-      pop: true
+      set: method_throws_keyword
     - match: \b({{func_param_direction}})\b\s*
       captures:
+        0: meta.function.parameters.vala
         1: keyword.control.vala
       set: method_parameter_type
     - match: (?=\S)
@@ -733,6 +733,29 @@ contexts:
       set: method_parameter_direction
     - match: \)
       scope: punctuation.section.parens.end.vala
+      pop: true
+    - include: else-pop
+
+  method_throws_keyword:
+    - match: \b(throws)\b\s+
+      captures:
+        1: keyword.control.exception.vala
+      set: method_error_list
+    - match: (?=(\{|;))
+      pop: true
+    - include: else-pop
+
+  method_error_list:
+    - match: \b({{builtin_type}})\b
+      captures:
+        1: storage.type.vala
+    - match: \b({{namespace_identifier}})\b
+      captures:
+        1: support.type.vala
+    - match: \,
+      scope: punctuation.separator.vala
+    # - match: \b(requires|ensures)\b\s+(\()
+    - match: (?=(\{|;))
       pop: true
     - include: else-pop
 

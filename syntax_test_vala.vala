@@ -997,6 +997,40 @@
 //                                               ^^^ constant.numeric.float.vala
 //                                                  ^ punctuation.section.parens.end.vala
 
+/** Handles throws keyword and builtin types. */
+
+    void f() throws int;
+//  ^^^^ storage.type.vala
+//       ^ meta.function.vala entity.name.function.vala
+//        ^ punctuation.section.parens.begin.vala
+//         ^ punctuation.section.parens.end.vala
+//           ^^^^^^ keyword.control.exception.vala
+//                  ^^^ storage.type.vala
+
+/** Handles throwing multiple errors. */
+
+    void f() throws int, string;
+//  ^^^^ storage.type.vala
+//       ^ meta.function.vala entity.name.function.vala
+//        ^ punctuation.section.parens.begin.vala
+//         ^ punctuation.section.parens.end.vala
+//           ^^^^^^ keyword.control.exception.vala
+//                  ^^^ storage.type.vala
+//                     ^ punctuation.separator.vala
+//                       ^^^^^^ storage.type.vala
+
+/** Handles throwing user errors. */
+
+    int f() throws Gtk.SomeErr, UserError;
+//  ^^^ storage.type.vala
+//      ^ meta.function.vala entity.name.function.vala
+//       ^ punctuation.section.parens.begin.vala
+//        ^ punctuation.section.parens.end.vala
+//          ^^^^^^ keyword.control.exception.vala
+//                 ^^^^^^^^^^^ support.type.vala
+//                            ^ punctuation.separator.vala
+//                              ^^^^^^^^^ support.type.vala
+
 /////////////////////////////////////////////////////////////////////
 // NAMESPACES
 /////////////////////////////////////////////////////////////////////
