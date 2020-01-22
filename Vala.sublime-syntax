@@ -770,20 +770,23 @@ contexts:
     - match: (?=\S)
       set: method_contracts
 
-  # TODO: match special "result" variable in "ensures" blocks.
+  # Matches method contract "requires" and "ensures"
+  # blocks. It will match the special language constant
+  # "result" in "ensures" blocks.
   method_contracts:
     - match: \b(requires|ensures)\b\s*(\()
       captures:
         1: keyword.control.conditional.vala
         2: punctuation.section.parens.begin.vala
       set:
+        - match: \bresult\b
+          scope: variable.language.vala
         - include: expressions
         - match: \)
           scope: punctuation.section.parens.end.vala
           set: method_contracts
-    - match: (?=(\{|;))
+    - match: (?=(\{|;|\S))
       pop: true
-    - include: else-pop
 
   # Helper context to match the end of the parameters list
   # and jump to the "throws" keyword context.

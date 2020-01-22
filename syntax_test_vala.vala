@@ -1157,7 +1157,7 @@
         ensures (result >= 0.0);
 //      ^^^^^^^ keyword.control.conditional.vala
 //              ^ punctuation.section.parens.begin.vala
-//               ^^^^^^ variable.other.readwrite.vala
+//               ^^^^^^ variable.language.vala
 //                      ^^ keyword.operator.comparison.vala
 //                         ^^^ constant.numeric.float.vala
 //                            ^ punctuation.section.parens.end.vala
