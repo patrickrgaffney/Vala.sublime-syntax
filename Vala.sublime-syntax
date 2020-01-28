@@ -344,12 +344,18 @@ contexts:
       pop: true
     - include: expressions
 
-  # TODO: handle function calls.
   pointer_member_expression:
-    - match: (->)({{identifier}})(?!\s*\()
-      captures:
-        1: punctuation.accessor.arrow.vala
-        2: variable.other.member.vala
+    - match: (->)
+      scope: punctuation.accessor.arrow.vala
+      push:
+        - match: ({{identifier}})\s*(\()
+          captures:
+            1: variable.function.vala
+            2: punctuation.section.parens.begin.vala
+          push: method_call_params
+        - match: ({{identifier}})
+          scope: variable.other.member.vala
+        - include: else-pop
 
   struct_member_expression:
     - match: ([.])

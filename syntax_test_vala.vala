@@ -900,14 +900,13 @@
 
     /* Struct members. */
 
-    t.method(); a.b.c.d().e();
+    t.method(); a.b.c.d().e(); a. b();
 //  ^ variable.other.readwrite.vala
 //   ^ punctuation.accessor.dot.vala
 //    ^^^^^^^^ meta.function-call.vala
 //    ^^^^^^ variable.function.vala
 //          ^ punctuation.section.parens.begin.vala
 //           ^ punctuation.section.parens.end.vala
-//            ^ punctuation.terminator.vala
 //              ^ variable.other.readwrite.vala
 //               ^ punctuation.accessor.dot.vala
 //                ^ variable.other.member.vala
@@ -923,6 +922,43 @@
 //                        ^ variable.function.vala
 //                         ^ punctuation.section.parens.begin.vala
 //                          ^ punctuation.section.parens.end.vala
+//                             ^ variable.other.readwrite.vala
+//                              ^ punctuation.accessor.dot.vala
+//                                ^^^ meta.function-call.vala
+//                                ^ variable.function.vala
+//                                 ^ punctuation.section.parens.begin.vala
+//                                  ^ punctuation.section.parens.end.vala
+
+    /* Pointer members. */
+
+    t->method(); a->b->c->d()->e(); a-> b();
+//  ^ variable.other.readwrite.vala
+//   ^^ punctuation.accessor.arrow.vala
+//     ^^^^^^^^ meta.function-call.vala
+//     ^^^^^^ variable.function.vala
+//           ^ punctuation.section.parens.begin.vala
+//            ^ punctuation.section.parens.end.vala
+//               ^ variable.other.readwrite.vala
+//                ^^ punctuation.accessor.arrow.vala
+//                  ^ variable.other.member.vala
+//                   ^^ punctuation.accessor.arrow.vala
+//                     ^ variable.other.member.vala
+//                      ^^ punctuation.accessor.arrow.vala
+//                        ^^^ meta.function-call.vala
+//                        ^ variable.function.vala
+//                         ^ punctuation.section.parens.begin.vala
+//                          ^ punctuation.section.parens.end.vala
+//                           ^^ punctuation.accessor.arrow.vala
+//                             ^^^ meta.function-call.vala
+//                             ^ variable.function.vala
+//                              ^ punctuation.section.parens.begin.vala
+//                               ^ punctuation.section.parens.end.vala
+//                                  ^ variable.other.readwrite.vala
+//                                   ^^ punctuation.accessor.arrow.vala
+//                                      ^^^ meta.function-call.vala
+//                                      ^ variable.function.vala
+//                                       ^ punctuation.section.parens.begin.vala
+//                                        ^ punctuation.section.parens.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // METHODS
