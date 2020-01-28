@@ -314,6 +314,8 @@ contexts:
 #####################################################################
 
   expressions:
+    - include: sizeof_typeof_operators
+    - include: method_call
     - include: pointer_member_expression
     - include: lambda_expression
     - include: operators
@@ -326,19 +328,41 @@ contexts:
     - match: '{{identifier}}'
       scope: variable.other.readwrite.vala
 
+  method_call:
+    - match: ({{identifier}})\s*(\()
+      captures:
+        1: variable.function.vala
+        2: punctuation.section.parens.begin.vala
+      push: method_call_params
+
+  method_call_params:
+    - meta_scope: meta.function-call.vala
+    - match: \,
+      scope: punctuation.separator.sequence.vala
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      pop: true
+    - include: expressions
+
   # TODO: handle function calls.
   pointer_member_expression:
-    - match: (->)({{identifier}})
+    - match: (->)({{identifier}})(?!\s*\()
       captures:
         1: punctuation.accessor.arrow.vala
         2: variable.other.member.vala
 
-  # TODO: handle method calls.
   struct_member_expression:
-    - match: ([.])({{identifier}})
-      captures:
-        1: punctuation.accessor.dot.vala
-        2: variable.other.member.vala
+    - match: ([.])
+      scope: punctuation.accessor.dot.vala
+      push:
+        - match: ({{identifier}})\s*(\()
+          captures:
+            1: variable.function.vala
+            2: punctuation.section.parens.begin.vala
+          push: method_call_params
+        - match: ({{identifier}})
+          scope: variable.other.member.vala
+        - include: else-pop
 
   this_expression:
     - match: \bthis\b
@@ -351,7 +375,6 @@ contexts:
       scope: keyword.operator.word.vala
     - include: parens
     - include: brackets
-    - include: sizeof_typeof_operators
     - include: as_is_operators
     - include: new_operator
     - match: 'global::'

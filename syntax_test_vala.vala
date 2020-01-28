@@ -825,7 +825,7 @@
 //                                 ^ punctuation.section.block.begin.vala
 //                                         ^ punctuation.section.block.end.vala
 
-/** C-Style for loop with user type. TODO: match method call. */
+/** C-Style for loop with user type. */
 
     for (File pos = file; pos != null; pos = pos.get_parent()) {/***/}
 //  ^^^ keyword.control.loop.vala
@@ -842,6 +842,11 @@
 //                                     ^^^ variable.other.readwrite.vala
 //                                         ^ keyword.operator.assignment.vala
 //                                           ^^^ variable.other.readwrite.vala
+//                                              ^ punctuation.accessor.dot.vala
+//                                               ^^^^^^^^^^^^ meta.function-call.vala
+//                                               ^^^^^^^^^^ variable.function.vala
+//                                                         ^ punctuation.section.parens.begin.vala
+//                                                          ^^ punctuation.section.parens.end.vala
 //                                                           ^ punctuation.section.group.end.vala
 //                                                             ^^^^^^^ meta.block.vala
 //                                                             ^ punctuation.section.block.begin.vala
@@ -868,6 +873,56 @@
 //                                    ^^^^^^^^^ meta.block.vala
 //                                    ^ punctuation.section.block.begin.vala
 //                                            ^ punctuation.section.block.end.vala
+
+/////////////////////////////////////////////////////////////////////
+// METHOD CALLS
+/////////////////////////////////////////////////////////////////////
+
+    something();
+//  ^^^^^^^^^^^ meta.function-call.vala
+//  ^^^^^^^^^ variable.function.vala
+//           ^ punctuation.section.parens.begin.vala
+//            ^ punctuation.section.parens.end.vala
+
+    /* Expressions in parameters. */
+
+    some(thing, 1 * global::else);
+//  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function-call.vala
+//  ^^^^ variable.function.vala
+//      ^ punctuation.section.parens.begin.vala
+//       ^^^^^ variable.other.readwrite.vala
+//            ^ punctuation.separator.sequence.vala
+//              ^ constant.numeric.integer.vala
+//                ^ keyword.operator.arithmetic.vala
+//                  ^^^^^^^^ keyword.operator.word.vala
+//                          ^^^^ variable.other.readwrite.vala
+//                              ^ punctuation.section.parens.end.vala
+
+    /* Struct members. */
+
+    t.method(); a.b.c.d().e();
+//  ^ variable.other.readwrite.vala
+//   ^ punctuation.accessor.dot.vala
+//    ^^^^^^^^ meta.function-call.vala
+//    ^^^^^^ variable.function.vala
+//          ^ punctuation.section.parens.begin.vala
+//           ^ punctuation.section.parens.end.vala
+//            ^ punctuation.terminator.vala
+//              ^ variable.other.readwrite.vala
+//               ^ punctuation.accessor.dot.vala
+//                ^ variable.other.member.vala
+//                 ^ punctuation.accessor.dot.vala
+//                  ^ variable.other.member.vala
+//                   ^ punctuation.accessor.dot.vala
+//                    ^^^ meta.function-call.vala
+//                    ^ variable.function.vala
+//                     ^ punctuation.section.parens.begin.vala
+//                      ^ punctuation.section.parens.end.vala
+//                       ^ punctuation.accessor.dot.vala
+//                        ^^^ meta.function-call.vala
+//                        ^ variable.function.vala
+//                         ^ punctuation.section.parens.begin.vala
+//                          ^ punctuation.section.parens.end.vala
 
 /////////////////////////////////////////////////////////////////////
 // METHODS
